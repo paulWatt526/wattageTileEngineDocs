@@ -1,12 +1,12 @@
-# PLUGIN_NAME.saveTable()
+# wattageTileEngine.saveTable()
 
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [PLUGIN_NAME.*](Readme.markdown)
+| __Library__          | [wattageTileEngine.*](Readme.markdown)
 | __Return value__     | [Boolean](http://docs.coronalabs.com/api/type/Boolean.html)
 | __Keywords__         | json
-| __See also__         | [PLUGIN_NAME.loadTable()](loadTable.markdown)
+| __See also__         | [wattageTileEngine.loadTable()](loadTable.markdown)
 
 
 ## Overview
@@ -16,8 +16,8 @@ This function saves a Lua table to a JSON file
 
 ## Syntax
 
-	PLUGIN_NAME.saveTable( t, filename )
-	PLUGIN_NAME.saveTable( t, filename, baseDirectory )
+	wattageTileEngine.saveTable( t, filename )
+	wattageTileEngine.saveTable( t, filename, baseDirectory )
 
 ##### t <small>(required)</small>
 _[Table](http://docs.coronalabs.com/api/type/Table.html)._ The Lua table you want to persist to a file.
@@ -32,7 +32,7 @@ _[Constant](http://docs.coronalabs.com/api/type/Constant.html)._ Constant corres
 ## Examples
 
 ``````lua
-local PLUGIN_NAME = require 'plugin.PLUGIN_NAME'
+local wattageTileEngine = require 'plugin.wattageTileEngine'
 
 local colors = 
 {
@@ -44,5 +44,5 @@ local colors =
 	{ name = "yellow",	value = { 1, 1, 0, 1 }, },
 }
 
-PLUGIN_NAME.saveTable( colors, "colors.json" )
+wattageTileEngine.saveTable( colors, "colors.json" )
 ``````

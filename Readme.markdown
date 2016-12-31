@@ -1,44 +1,160 @@
-__*[NOTE]:*__ See [Instructions](Instructions.markdown) for these stub documentation files. (Remove this before you deploy your docs)
-
-
-# PLUGIN_NAME: Plugin API Docs
+# Wattage Tile Engine: Plugin API Docs
 
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
-| __Type__             | [TYPE](http://docs.coronalabs.com/api/type/Library.html)
-| __Corona Store__     | [PLUGIN_NAME](http://store.coronalabs.com/plugin/PLUGIN_NAME)
-| __Keywords__         | 
+| __Type__             | [Library](http://docs.coronalabs.com/api/type/Library.html)
+| __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
+| __Keywords__         | Tiles, Tile, Tile Engine, Engine
 | __See also__         | 
 
 ## Overview
 
-The PLUGIN_NAME plugin can be used in your [Corona](https://coronalabs.com/products/corona-sdk/) project. It enables you to...
+The wattageTileEngine plugin can be used in your
+[Corona](https://coronalabs.com/products/corona-sdk/) project.  It enables
+the display of a large number of tiles and includes the following features:
+
+* Support for a large number of tiles.
+* Dynamic lighting effects.
+    * Tiles may be configured as opaque to cast shadows.
+    * Opaque tiles may be added/removed arbitrarily and their effects
+    on shadows will be realized in real-time.
+    * Lights may be added and removed arbitrarily and their effects
+    are realized in real-time.
+    * Ability to specify ambient lighting.  This is useful for outdoor
+    scenes.
+    * Ability to specify whether a tile is affected by ambient light.
+    This is useful for indoor tiles in an outdoor environment.
+    * Lights may be moved with smooth transitions between their states.
+    * Entities are affected by the lighting in each tile.
+* Dynamic line of sight.  Useful for hiding tiles that would not be
+visible to the player.
+* Dynamic tile definitions.  Useful for representing a dynamic world.
+* Multiple layers.
+* Multiple layer types (Tile, Entity)
+* Parallax scrolling between layers.
+* Camera which supports arbitrary viewing positions and different levels
+of zoom.
 
 
 ## Syntax
 
-	local PLUGIN_NAME = require "plugin.PLUGIN_NAME"
+	local wattageTileEngine = require "plugin.wattageTileEngine"
+
+### Packages
+
+#### Camera
+
+##### Functions
+
+##### Properties
+
+
+#### Engine
+
+##### Functions
+
+##### Properties
+
+
+#### EntityLayer
+
+##### Functions
+
+##### Properties
+
+
+#### LightingModel
+
+##### Functions
+
+##### Properties
+
+
+#### LineOfSightModel
+
+##### Functions
+
+##### Properties
+
+
+#### Module
+
+##### Functions
+
+##### Properties
+
+
+#### ObjectSystem
+
+##### Functions
+
+##### Properties
+
+
+#### SpriteInfo
+
+##### Functions
+
+##### Properties
+
+
+#### Tile
+
+##### Functions
+
+##### Properties
+
+
+#### TileLayer
+
+##### Functions
+
+##### Properties
+
+
+#### Utils
+
+##### Functions
+
+##### Properties
+
+
+#### ViewControl
+
+##### Functions
+
+##### Properties
+
+
+
+
+
 
 ### Functions
 
-##### [PLUGIN_NAME.loadTable()](loadTable.markdown)
+##### [wattageTileEngine.loadTable()](loadTable.markdown)
 
-##### [PLUGIN_NAME.printTable()](printTable.markdown)
+##### [wattageTileEngine.printTable()](printTable.markdown)
 
-##### [PLUGIN_NAME.saveTable()](saveTable.markdown)
+##### [wattageTileEngine.saveTable()](saveTable.markdown)
 
-##### [PLUGIN_NAME.FUNCTION()](FUNCTION.markdown)
+##### [wattageTileEngine.FUNCTION()](FUNCTION.markdown)
 
 
 ### Properties
 
-##### [PLUGIN_NAME.PROPERTY](PROPERTY.markdown)
+##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+
+
+
+
+
 
 ## Project Configuration
 
 ### Corona Store Activation
 
-In order to use this plugin, you must activate the plugin at the [Corona Store](http://store.coronalabs.com/plugin/PLUGIN_NAME).
+In order to use this plugin, you must activate the plugin at the [Corona Store](http://store.coronalabs.com/plugin/wattageTileEngine).
 
 
 ### SDK
@@ -53,10 +169,10 @@ settings =
 	plugins =
 	{
 		-- key is the name passed to Lua's 'require()'
-		["plugin.PLUGIN_NAME"] =
+		["plugin.wattageTileEngine"] =
 		{
 			-- required
-			publisherId = "REVERSE_PUBLISHER_URL",
+			publisherId = "com.blindprophetsoftware",
 		},
 	},		
 }
@@ -64,7 +180,7 @@ settings =
 
 ### Enterprise
 
-If you have activated this plugin, you can download this plugin from the corresponding plugin page in the [Corona Store](http://store.coronalabs.com/plugin/PLUGIN_NAME).
+If you have activated this plugin, you can download this plugin from the corresponding plugin page in the [Corona Store](http://store.coronalabs.com/plugin/wattageTileEngine).
 
 
 ## Platform-specific Notes
@@ -80,26 +196,26 @@ You can access sample code [here](SAMPLE_CODE_URL).
 
 ### Support
 
-More support is available from the PUBLISHER_NAME team:
+More support is available from the Blind Prophet Software, LLC team:
 
-* [E-mail](mailto://PUBLISHER_CONTACT@PUBLISHER_URL)
-* [Forum](http://FORUM_URL)
-* [Plugin Publisher](http://PUBLISHER_URL)
+* [E-mail](mailto://contact@blindprophetsoftware.com@http://www.blindprophetsoftware.com)
+* [Forum](http://http://blindprophetsoftware.boards.net)
+* [Plugin Publisher](http://http://www.blindprophetsoftware.com)
 
 
 ## Compatibility
 
 | Platform                     | Supported
 | ---------------------------- | ---------------------------- 
-| iOS                          | No
-| Android                      | No
-| Android (GameStick)          | No
-| Android (Kindle)             | No
-| Android (NOOK)               | No
-| Android (Ouya)               | No
-| Mac App                      | No
-| Win32 App                    | No
-| Windows Phone 8              | No
-| Corona Simulator (Mac)       | No
-| Corona Simulator (Win)       | No
+| iOS                          | Yes
+| Android                      | Yes
+| Android (GameStick)          | Yes
+| Android (Kindle)             | Yes
+| Android (NOOK)               | Yes
+| Android (Ouya)               | Yes
+| Mac App                      | Yes
+| Win32 App                    | Yes
+| Windows Phone 8              | Yes
+| Corona Simulator (Mac)       | Yes
+| Corona Simulator (Win)       | Yes
 

@@ -48,15 +48,15 @@ In the template files, there are various words that are written in all-caps. We 
 
 Some examples of bulk find/replace are shown below for a fictitious 'binaryjson' plugin developed by the fictitious 'MyCompany' developer:
 
-* `PLUGIN_NAME` => `binaryjson`
+* `wattageTileEngine` => `binaryjson`
 * `FUNCTION` => `encode()`
 * `PROPERTY` => `version`
 * `TYPE` => `[String](http://docs.coronalabs.com/api/type/String.html)`
-* `PUBLISHER_CONTACT` => `support@mycompany.com`
-* `PUBLISHER_NAME` => `MyCompany`
-* `PUBLISHER_URL` => `http://mycompany.com/`
-* `FORUM_URL` => `http://mycompany.com/forums/binaryjson`
-* `REVERSE_PUBLISHER_URL` => `com.mycompany`
+* `contact@blindprophetsoftware.com` => `support@mycompany.com`
+* `Blind Prophet Software, LLC` => `MyCompany`
+* `http://www.blindprophetsoftware.com` => `http://mycompany.com/`
+* `http://blindprophetsoftware.boards.net` => `http://mycompany.com/forums/binaryjson`
+* `com.blindprophetsoftware` => `com.mycompany`
 * `SAMPLE_CODE_URL` => `http://github.com/mycompany/binaryjson-sample`
 
 

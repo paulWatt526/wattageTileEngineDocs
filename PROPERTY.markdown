@@ -1,9 +1,9 @@
-# PLUGIN_NAME.PROPERTY
+# wattageTileEngine.PROPERTY
 
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [TYPE]()
-| __Library__          | [PLUGIN_NAME.*](Readme.markdown)
+| __Library__          | [wattageTileEngine.*](Readme.markdown)
 | __Keywords__         | PROPERTY
 | __See also__         | 
 
@@ -16,7 +16,7 @@ This property is...
 ## Example
  
 ``````lua
-local PLUGIN_NAME = require 'plugin.PLUGIN_NAME'
+local wattageTileEngine = require 'plugin.wattageTileEngine'
 
-print( PLUGIN_NAME.PROPERTY )
+print( wattageTileEngine.PROPERTY )
 ``````
