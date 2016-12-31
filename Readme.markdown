@@ -1,6 +1,6 @@
 # Wattage Tile Engine: Plugin API Docs
 
-|                      | &nbsp; 
+|                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [Library](http://docs.coronalabs.com/api/type/Library.html)
 | __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
@@ -40,114 +40,22 @@ of zoom.
 
 	local wattageTileEngine = require "plugin.wattageTileEngine"
 
-### Packages
-
-#### Camera
-
-##### Functions
-
-##### Properties
-
-
-#### Engine
-
-##### Functions
-
-##### Properties
-
-
-#### EntityLayer
-
-##### Functions
-
-##### Properties
-
-
-#### LightingModel
-
-##### Functions
-
-##### Properties
-
-
-#### LineOfSightModel
-
-##### Functions
-
-##### Properties
-
-
-#### Module
-
-##### Functions
-
-##### Properties
-
-
-#### ObjectSystem
-
-##### Functions
-
-##### Properties
-
-
-#### SpriteInfo
-
-##### Functions
-
-##### Properties
-
-
-#### Tile
-
-##### Functions
-
-##### Properties
-
-
-#### TileLayer
-
-##### Functions
-
-##### Properties
-
-
-#### Utils
-
-##### Functions
-
-##### Properties
-
-
-#### ViewControl
-
-##### Functions
-
-##### Properties
-
-
-
-
-
-
-### Functions
-
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
-
-##### [wattageTileEngine.printTable()](printTable.markdown)
-
-##### [wattageTileEngine.saveTable()](saveTable.markdown)
-
-##### [wattageTileEngine.FUNCTION()](FUNCTION.markdown)
-
-
-### Properties
-
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
-
-
-
-
+### Types
+
+The following types are exposed by the Wattage Tile Engine library:
+
+* [Camera](camera/type_camera.markdown)
+* [Engine](engine/type_engine.markdown)
+* [EntityLayer](entityLayer/type_entityLayer.markdown)
+* [LightingModel](lightingModel/type_lightingModel.markdown)
+* [LineOfSightModel](lineOfSightModel/type_lineOfSightModel.markdown)
+* [Module](module/type_module.markdown)
+* [ObjectSystem](objectSystem/type_objectSystem.markdown)
+* [SpriteInfo](spriteInfo/type_spriteInfo.markdown)
+* [Tile](tile/type_tile.markdown)
+* [TileLayer](tileLayer/type_tileLayer.markdown)
+* [Utils](utils/type_utils.markdown)
+* [ViewControl](viewControl/type_viewControl.markdown)
 
 
 ## Project Configuration
