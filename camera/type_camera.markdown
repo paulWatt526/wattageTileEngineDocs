@@ -9,14 +9,46 @@
 
 ## Overview
 
+A camera is used by the tile engine renderer to determine what is
+visible.  In typical usage, the camera will be created by the ViewControl
+and not the developer.
+
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+An instance of the camera can be retrieved from the ViewControl.
+
+	-- tileEngineViewControl is an instance of ViewControl
+	local camera = tileEngineViewControl.getCamera()
+
+	-- set camera location in tile coordinates (not pixels)
+	camera.setLocation(10.5, 10.5)
+
+	-- pass camera to the tile engine's render function
+	tileEngine.render(camera)
+
+### Constructor
+
+#### [new()](new.markdown)
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [isLocationDirty()](isLocationDirty.markdown)
+##### [setLocationDirty()](setLocationDirty.markdown)
+##### [setLocation()](setLocation.markdown)
+##### [getX()](getX.markdown)
+##### [getY()](getY.markdown)
+##### [getLayer()](getLayer.markdown)
+##### [setLayer()](setLayer.markdown)
+##### [isLayerDirty()](isLayerDirty.markdown)
+##### [setLayerDirty()](setLayerDirty.markdown)
+##### [getZoom()](getZoom.markdown)
+##### [setZoom()](setZoom.markdown)
+##### [isZoomDirty()](isZoomDirty.markdown)
+##### [setZoomDirty()](setZoomDirty.markdown)
 
 ### Properties
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [width](width.markdown)
+##### [height](height.markdown)
+##### [pixelWidth](pixelWidth.markdown)
+##### [pixelHeight](pixelHeight.markdown)
