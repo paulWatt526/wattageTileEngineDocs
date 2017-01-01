@@ -33,22 +33,38 @@ An instance of the camera can be retrieved from the ViewControl.
 ### Functions
 
 ##### [isLocationDirty()](isLocationDirty.markdown)
+
 ##### [setLocationDirty()](setLocationDirty.markdown)
+
 ##### [setLocation()](setLocation.markdown)
+
 ##### [getX()](getX.markdown)
+
 ##### [getY()](getY.markdown)
+
 ##### [getLayer()](getLayer.markdown)
+
 ##### [setLayer()](setLayer.markdown)
+
 ##### [isLayerDirty()](isLayerDirty.markdown)
+
 ##### [setLayerDirty()](setLayerDirty.markdown)
+
 ##### [getZoom()](getZoom.markdown)
+
 ##### [setZoom()](setZoom.markdown)
+
 ##### [isZoomDirty()](isZoomDirty.markdown)
+
 ##### [setZoomDirty()](setZoomDirty.markdown)
+
 
 ### Properties
 
 ##### [width](width.markdown)
+
 ##### [height](height.markdown)
+
 ##### [pixelWidth](pixelWidth.markdown)
+
 ##### [pixelHeight](pixelHeight.markdown)
