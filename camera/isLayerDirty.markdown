@@ -9,7 +9,7 @@
 | __See also__         | 
 
 
-## Overview
+## Overviewa
 
 This function returns true if the value of layer has been altered since
 the previous render call.  This is used internally by the engine.

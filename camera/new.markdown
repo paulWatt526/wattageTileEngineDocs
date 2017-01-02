@@ -19,16 +19,16 @@ from the ViewControl.**
 
 ## Syntax
 
-	Camera.new( ARG1 )
+	Camera.new( params )
 
-##### ARG1 <small>(required)</small>
+##### params <small>(required)</small>
 _[Table](http://docs.coronalabs.com/api/type/Table.html)._
 Contains all required inputs. See **Required Properties** below.
 
 
 ### Required Properties
 
-The `ARG1` table contains the following properties:
+The `params` table contains the following properties:
 
 ##### x <small>(required)</small>
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._ X position of camera in tile units.  Values increase from

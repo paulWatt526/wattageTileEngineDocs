@@ -16,13 +16,13 @@ This function sets the location of the camera.
 
 ## Syntax
 
-	Camera.setLocation( ARG1, ARG2 )
+	Camera.setLocation( x, y )
 
-##### ARG1 <small>(required)</small>
+##### x <small>(required)</small>
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._
 The X coordinate of the camera in tile units. (not pixels)
 
-##### ARG2 <small>(required)</small>
+##### y <small>(required)</small>
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._
 The Y coordinate of the camera in tile units. (not pixels)
 

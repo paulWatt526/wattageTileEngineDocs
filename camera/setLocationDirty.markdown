@@ -19,9 +19,9 @@ since the last rendering.
 
 ## Syntax
 
-	Camera.setLocationDirty( ARG1 )
+	Camera.setLocationDirty( dirty )
 
-##### ARG1 <small>(required)</small>
+##### dirty <small>(required)</small>
 _[boolean](https://docs.coronalabs.com/api/type/Boolean.html)._ True
 to indicate that the camera's location has been changed.
 

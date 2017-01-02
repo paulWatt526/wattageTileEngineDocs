@@ -19,9 +19,9 @@ since the last rendering.
 
 ## Syntax
 
-	Camera.setLayerDirty( ARG1 )
+	Camera.setLayerDirty( dirty )
 
-##### ARG1 <small>(required)</small>
+##### dirty <small>(required)</small>
 _[boolean](https://docs.coronalabs.com/api/type/Boolean.html)._ True
 to indicate that the focus layer has been changed.
 

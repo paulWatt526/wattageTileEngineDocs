@@ -17,9 +17,9 @@ factor of one.
 
 ## Syntax
 
-	Camera.setLayer( ARG1 )
+	Camera.setLayer( index )
 
-##### ARG1 <small>(required)</small>
+##### index <small>(required)</small>
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._ The index
 of the layer that the camera will focus on.  This results in the
 specified layer having a scaling value of 1 and is useful when

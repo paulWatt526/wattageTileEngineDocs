@@ -20,9 +20,9 @@ artifacts.  This may be addressed in a future build.**
 
 ## Syntax
 
-	Camera.setZoom( ARG1 )
+	Camera.setZoom( zoom )
 
-##### ARG1 <small>(required)</small>
+##### zoom <small>(required)</small>
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._ The zoom
 value to apply to the camera.  A value of 1 indicates no zoom, values
 less than 1 but greater than 0 results in zooming out, and values greater
