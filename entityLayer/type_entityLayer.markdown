@@ -45,4 +45,4 @@ local entityLayer = TileEngine.EntityLayer.new({
 
 ##### [EntityLayer.getEntityInfos()](getEntityInfos.markdown)
 
-##### [EntityLayer.destroy()](.markdown)
+##### [EntityLayer.destroy()](destroy.markdown)
