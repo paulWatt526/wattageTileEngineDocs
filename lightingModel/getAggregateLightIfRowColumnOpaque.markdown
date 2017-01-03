@@ -44,5 +44,5 @@ Column of the view point.
 local light = lightingModelInstance.getAggregateLightIfRowColumnOpaque(10, 15, 12, 17)
 local red = light.r
 local green = light.g
-local blud = light.b
+local blue = light.b
 ``````

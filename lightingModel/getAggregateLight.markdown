@@ -34,5 +34,5 @@ Column of the tile.
 local light = lightingModelInstance.getAggregateLight(10, 15)
 local red = light.r
 local green = light.g
-local blud = light.b
+local blue = light.b
 ``````

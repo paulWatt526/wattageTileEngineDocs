@@ -33,7 +33,7 @@ local row = light.row
 local column = light.column
 local red = light.r
 local green = light.g
-local blud = light.b
+local blue = light.b
 local intensity = light.intensity
 local radius = light.radius
 ``````
