@@ -49,6 +49,8 @@ local tileEngine = TileEngine.Engine.new({
 
 ##### [Engine.isTileVisibleInLayer()](isTileVisibleInLayer.markdown)
 
+##### [Engine.new()](new.markdown)
+
 ##### [Engine.removeModule()](removeModule.markdown)
 
 ##### [Engine.render()](render.markdown)

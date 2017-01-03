@@ -9,14 +9,40 @@
 
 ## Overview
 
+The entity layer enables arbitrary placement of entities resolved by
+the supplied sprite resolver or any display object.
+
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+``````lua
+local TileEngine = require "plugin.wattageTileEngine"
+
+local entityLayer = TileEngine.EntityLayer.new({
+    tileSize=32,
+    spriteResolver=spriteResolver
+})
+``````
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [EntityLayer.new()](new.markdown)
 
-### Properties
+##### [EntityLayer.clear()](clear.markdown)
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [EntityLayer.addEntity()](addEntity.markdown)
+
+##### [EntityLayer.addNonResourceEntity()](addNonResourceEntity.markdown)
+
+##### [EntityLayer.removeEntity()](removeEntity.markdown)
+
+##### [EntityLayer.removeNonResourceEntity()](removeNonResourceEntity.markdown)
+
+##### [EntityLayer.centerEntityOnTile()](centerEntityOnTile.markdown)
+
+##### [EntityLayer.centerNonResourceEntityOnTile()](centerNonResourceEntityOnTile.markdown)
+
+##### [EntityLayer.getEntityInfo()](getEntityInfo.markdown)
+
+##### [EntityLayer.getEntityInfos()](getEntityInfos.markdown)
+
+##### [EntityLayer.destroy()](.markdown)
