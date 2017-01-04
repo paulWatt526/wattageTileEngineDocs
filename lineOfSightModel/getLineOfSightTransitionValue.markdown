@@ -33,5 +33,5 @@ The column of the tile to get the transition value from.
 ## Examples
 
 ``````lua
-local value = LineOfSightModel.getLineOfSightTransitionValue(10, 15)
+local value = lineOfSightModelInstance.getLineOfSightTransitionValue(10, 15)
 ``````

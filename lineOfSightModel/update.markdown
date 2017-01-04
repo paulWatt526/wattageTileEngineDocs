@@ -1,43 +1,42 @@
-# wattageTileEngine.FUNCTION()
+# LineOfSightModel.update()
 
-|                      | &nbsp; 
+|                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.*](Readme.markdown)
-| __Return value__     | [TYPE]()
-| __Keywords__         | 
-| __See also__         | 
+| __Library__          | [wattageTileEngine.Engine](type_engine.markdown)
+| __Return value__     | VOID
+| __Keywords__         |
+| __See also__         |
 
 
 ## Overview
 
-This function does...
+This function updates the line of sight model.  This will result in
+advancing any tile transitions between line of sight status and will
+recalculate using the supplied center tile coordinate if it was marked
+as dirty since the last update.
 
 
 ## Syntax
 
-	wattageTileEngine.FUNCTION( ARG1 )
-	wattageTileEngine.FUNCTION( ARG1, options )
+``````lua
+LineOfSightModel.update( centerRow, centerColumn, timeDelta )
+``````
 
-##### ARG1 <small>(required)</small>
-_[TYPE]()._ Short description goes here.
+##### centerRow <small>(required)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The row of the center point of the line of sight.
 
-##### options <small>(optional)</small>
-_[Table](http://docs.coronalabs.com/api/type/Table.html)._ Short description goes here. See **Format for options** below.
+##### centerColumn <small>(required)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The column of the center point of the line of sight.
 
-
-### Format for `options`
-
-The `options` table contains the following properties:
-
-##### PROPERTY1 <small>(required)</small>
-_[TYPE]()._ Short description goes here.
-
+##### timeDelta <small>(required)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The time passed in milliseconds since the last update call.
 
 ## Examples
 
 ``````lua
-local wattageTileEngine = require 'plugin.wattageTileEngine'
-
-wattageTileEngine.FUNCTION( ARG1 )
+lineOfSightModelInstance.update( 10, 15,  1000 / 60 )
 ``````

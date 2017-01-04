@@ -1,43 +1,35 @@
-# wattageTileEngine.FUNCTION()
+# LineOfSightModel.isInLineOfSight()
 
-|                      | &nbsp; 
+|                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.*](Readme.markdown)
-| __Return value__     | [TYPE]()
-| __Keywords__         | 
-| __See also__         | 
+| __Library__          | [wattageTileEngine.LightingModel](type_lightingModel.markdown)
+| __Return value__     | [boolean](https://docs.coronalabs.com/api/type/Boolean.html)
+| __Keywords__         |
+| __See also__         |
 
 
 ## Overview
 
-This function does...
+This function returns if the tile is currently in the line of sight,
+otherwise false.
 
 
 ## Syntax
 
-	wattageTileEngine.FUNCTION( ARG1 )
-	wattageTileEngine.FUNCTION( ARG1, options )
+	LineOfSightModel.isInLineOfSight( row, column )
 
-##### ARG1 <small>(required)</small>
-_[TYPE]()._ Short description goes here.
+##### row <small>(required)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The row of the tile.
 
-##### options <small>(optional)</small>
-_[Table](http://docs.coronalabs.com/api/type/Table.html)._ Short description goes here. See **Format for options** below.
-
-
-### Format for `options`
-
-The `options` table contains the following properties:
-
-##### PROPERTY1 <small>(required)</small>
-_[TYPE]()._ Short description goes here.
+##### column <small>(required)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The column of the tile.
 
 
 ## Examples
 
 ``````lua
-local wattageTileEngine = require 'plugin.wattageTileEngine'
-
-wattageTileEngine.FUNCTION( ARG1 )
+local isInLOS = lineOfSightModelInstance.isInLineOfSight(10, 15)
 ``````

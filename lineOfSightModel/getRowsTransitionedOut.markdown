@@ -1,43 +1,37 @@
-# wattageTileEngine.FUNCTION()
+# LineOfSightModel.getRowsTransitionedOut()
 
-|                      | &nbsp; 
+|                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.*](Readme.markdown)
-| __Return value__     | [TYPE]()
-| __Keywords__         | 
-| __See also__         | 
+| __Library__          | [wattageTileEngine.LineOfSight](type_lineOfSight.markdown)
+| __Return value__     | [Table](http://docs.coronalabs.com/api/type/Table.html)
+| __Keywords__         |
+| __See also__         |
 
 
 ## Overview
 
-This function does...
+This function returns a table containing the column component of all
+tiles transitioned out of line of sight.  The order of this list matches
+that of getColsTransitionedOut().  So the value at the same index from each
+gives the complete row, column coordinate.
 
 
 ## Syntax
 
-	wattageTileEngine.FUNCTION( ARG1 )
-	wattageTileEngine.FUNCTION( ARG1, options )
-
-##### ARG1 <small>(required)</small>
-_[TYPE]()._ Short description goes here.
-
-##### options <small>(optional)</small>
-_[Table](http://docs.coronalabs.com/api/type/Table.html)._ Short description goes here. See **Format for options** below.
-
-
-### Format for `options`
-
-The `options` table contains the following properties:
-
-##### PROPERTY1 <small>(required)</small>
-_[TYPE]()._ Short description goes here.
+	LineOfSightModel.getRowsTransitionedOut()
 
 
 ## Examples
 
 ``````lua
-local wattageTileEngine = require 'plugin.wattageTileEngine'
+local outRows = lineOfSightModelInstance.getRowsTransitionedOut()
+local outCols = lineOfSightModelInstance.getColsTransitionedOut()
 
-wattageTileEngine.FUNCTION( ARG1 )
+local outTileCoords = {}
+for i=1,#outRows do
+    local row = outRows[i]
+    local col = outCols[i]
+    table.insert(outTileCoords, {row = row, col = col})
+end
 ``````
