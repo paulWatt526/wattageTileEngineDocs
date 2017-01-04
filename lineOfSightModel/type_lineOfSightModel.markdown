@@ -11,12 +11,49 @@
 
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+	local TileEngine = require "plugin.wattageTileEngine"
+
+	-- Callback to indicate whether line of sight can pass through tile
+    local function isTransparent(column, row)
+        -- Make an opaque wall along column 5
+        return column ~= 5
+    end
+
+	local lineOfSightModel = TileEngine.LineOfSightModel.new({
+	    radius = 15,
+	    isTransparent = isTransparent
+	})
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [LineOfSightModel.new()](new.markdown)
 
-### Properties
+##### [LineOfSightModel.update()](update.markdown)
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [LineOfSightModel.makeDirty()](makeDirty.markdown)
+
+##### [LineOfSightModel.hasDirtyTiles()](hasDirtyTiles.markdown)
+
+##### [LineOfSightModel.resetDirtyFlags()](resetDirtyFlags.markdown)
+
+##### [LineOfSightModel.isInLineOfSight()](isInLineOfSight.markdown)
+
+##### [LineOfSightModel.getLineOfSightTransitionValue()](getLineOfSightTransitionValue.markdown)
+
+##### [LineOfSightModel.resetChangeTracking()](resetChangeTracking.markdown)
+
+##### [LineOfSightModel.getDirtyRows()](getDirtyRows.markdown)
+
+##### [LineOfSightModel.getDirtyColumns()](getDirtyColumns.markdown)
+
+##### [LineOfSightModel.getDirtyCount()](getDirtyCount.markdown)
+
+##### [LineOfSightModel.getRowsTransitionedIn()](getRowsTransitionedIn.markdown)
+
+##### [LineOfSightModel.getColsTransitionedIn()](getColsTransitionedIn.markdown)
+
+##### [LineOfSightModel.getRowsTransitionedOut()](getRowsTransitionedOut.markdown)
+
+##### [LineOfSightModel.getColsTransitionedOut()](getColsTransitionedOut.markdown)
+
+##### [LineOfSightModel.getCoordinatesIn()](getCoordinatesIn.markdown)
