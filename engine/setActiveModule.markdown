@@ -31,7 +31,7 @@ Contains all required inputs. See **Required Properties** below.
 The `params` table contains the following properties:
 
 ##### moduleName <small>(required)</small>
-_[Module](../module/type_module.markdown)._ name of module to make
+_[String](https://docs.coronalabs.com/api/type/String.html)._ name of module to make
 active.
 
 
