@@ -38,9 +38,15 @@ frequently.
 ### Functions
 
 ##### [Module.insertLayerAtIndex()](insertLayerAtIndex.markdown)
+
 ##### [Module.addPhysicsBody()](addPhysicsBody.markdown)
+
 ##### [Module.removePhysicsBody()](removePhysicsBody.markdown)
+
 ##### [Module.hasDirtyTile()](hasDirtyTile.markdown)
+
 ##### [Module.activate()](activate.markdown)
+
 ##### [Module.deactivate()](deactivate.markdown)
+
 ##### [Module.destroy()](destroy.markdown)
