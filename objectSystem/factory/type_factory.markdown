@@ -25,4 +25,5 @@ as a static class.
 ### Functions
 
 ##### [Factory.registerForType()](registerForType.markdown)
+
 ##### [Factory.getForType()](getForType.markdown)

@@ -41,4 +41,4 @@ The stream used to read the file.
 ## Examples
 
 Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+[Usage Guide](../usageGuide.markdown##Example).
