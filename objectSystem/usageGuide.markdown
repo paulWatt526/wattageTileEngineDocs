@@ -10,9 +10,9 @@ object system internally.
 
 This guide contains three main sections:
 
-* [Extending the Abstract Object Base Class](##Extending-the-Abstract-Object-Base-Class)
-* [Saving and Loading an Object Graph](##Saving-and-Loading-an-Object-Graph)
-* [Example](##Example)
+* [Extending the Abstract Object Base Class](#extending-the-abstract-object-base-class)
+* [Saving and Loading an Object Graph](#saving-and-loading-an-object-graph)
+* [Example](#example)
 
 ## Extending the Abstract Object Base Class
 
