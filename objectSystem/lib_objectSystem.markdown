@@ -15,13 +15,13 @@ exposed for optional use by users of the tile engine.  This library
 can be very useful in aiding with persisting object graphs but is an
 advanced feature which requires some knowledge of object oriented
 principles.  Please see the [Usage Guide](usageGuide.markdown)
-and [Lua OOP Primer](luaOopPrimer.markdown) for
+and [Lua OOP Primer](../luaOopPrimer.markdown) for
 additional details.  Again, use of this library is optional.**
 
 ## Guides
 
 * [Usage Guide](usageGuide.markdown)
-* [Lua OOP Primer](luaOopPrimer.markdown)
+* [Lua OOP Primer](../luaOopPrimer.markdown)
 
 ## Syntax
 

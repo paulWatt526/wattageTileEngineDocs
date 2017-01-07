@@ -35,6 +35,10 @@ visible to the player.
 * Camera which supports arbitrary viewing positions and different levels
 of zoom.
 
+## Guides
+
+* [Lua OOP Primer (Optional)](luaOopPrimer.markdown)
+* [ObjectSystem Usage Guide (Optional)](objectSystem/usageGuide.markdown)
 
 ## Syntax
 
