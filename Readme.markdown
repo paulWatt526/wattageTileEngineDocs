@@ -40,6 +40,11 @@ of zoom.
 
 	local wattageTileEngine = require "plugin.wattageTileEngine"
 
+### Libraries
+
+* [ObjectSystem](objectSystem/lib_objectSystem.markdown)
+* [Utils](utils/lib_utils.markdown)
+
 ### Types
 
 The following types are exposed by the Wattage Tile Engine library:
@@ -50,11 +55,9 @@ The following types are exposed by the Wattage Tile Engine library:
 * [LightingModel](lightingModel/type_lightingModel.markdown)
 * [LineOfSightModel](lineOfSightModel/type_lineOfSightModel.markdown)
 * [Module](module/type_module.markdown)
-* [ObjectSystem](objectSystem/type_objectSystem.markdown)
 * [SpriteInfo](spriteInfo/type_spriteInfo.markdown)
 * [Tile](tile/type_tile.markdown)
 * [TileLayer](tileLayer/type_tileLayer.markdown)
-* [Utils](utils/type_utils.markdown)
 * [ViewControl](viewControl/type_viewControl.markdown)
 
 
