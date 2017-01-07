@@ -24,5 +24,4 @@ The name of the file to load.
 
 ## Examples
 
-Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+Please see the example in the [Usage Guide](../usageGuide.markdown).

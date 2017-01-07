@@ -40,5 +40,4 @@ The stream used to write the file.
 
 ## Examples
 
-Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+Please see the example in the [Usage Guide](../usageGuide.markdown).

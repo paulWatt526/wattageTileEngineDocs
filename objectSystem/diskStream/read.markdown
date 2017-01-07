@@ -21,5 +21,4 @@ read in the same order that they were written.
 
 ## Examples
 
-Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+Please see the example in the [Usage Guide](../usageGuide.markdown).

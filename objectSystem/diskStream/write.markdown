@@ -21,5 +21,4 @@ are written will be the same order that they will be read.
 
 ## Examples
 
-Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+Please see the example in the [Usage Guide](../usageGuide.markdown).

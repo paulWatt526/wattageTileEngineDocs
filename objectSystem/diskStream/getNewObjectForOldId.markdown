@@ -28,4 +28,4 @@ The ID the object had when it was persisted.
 ## Examples
 
 Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+[Usage Guide](../usageGuide.markdown).

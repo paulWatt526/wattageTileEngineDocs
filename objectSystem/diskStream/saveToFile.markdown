@@ -27,5 +27,4 @@ The name of the file to save to.
 
 ## Examples
 
-Please see the example in the
-[Usage Guide](../usageGuide.markdown#Example).
+Please see the example in the [Usage Guide](../usageGuide.markdown).
