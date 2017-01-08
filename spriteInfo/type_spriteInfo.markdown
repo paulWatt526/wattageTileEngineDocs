@@ -27,8 +27,8 @@ entity layers.
 
 ### Properties
 
-##### [SpriteInfo.imageRect](.markdown)
+##### [SpriteInfo.imageRect](imageRect.markdown)
 
-##### [SpriteInfo.width](.markdown)
+##### [SpriteInfo.width](width.markdown)
 
-##### [SpriteInfo.height](.markdown)
+##### [SpriteInfo.height](height.markdown)
