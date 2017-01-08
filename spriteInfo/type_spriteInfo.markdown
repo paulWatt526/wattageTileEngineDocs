@@ -9,14 +9,26 @@
 
 ## Overview
 
+This type contains information about entitiy sprites in
+entity layers.
+
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+	local TileEngine = require "plugin.wattageTileEngine"
+	local SpriteInfo = TileEngine.SpriteInfo
+
+### Constructor
+
+##### [SpriteInfo.new()](new.markdown)
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [SpriteInfo.destroy()](destroy.markdown)
 
 ### Properties
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [SpriteInfo.imageRect](.markdown)
+
+##### [SpriteInfo.width](.markdown)
+
+##### [SpriteInfo.height](.markdown)
