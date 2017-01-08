@@ -9,14 +9,21 @@
 
 ## Overview
 
+This library contains a number of helpful functions.
+
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+	local TileEngine = require "plugin.wattageTileEngine"
+	local Utils = TileEngine.Utils
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [Utils.requireParams()](requireParams.markdown)
 
-### Properties
+##### [Utils.addToGrid()](addToGrid.markdown)
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [Utils.getFromGrid()](getFromGrid.markdown)
+
+##### [Utils.removeFromGrid()](removeFromGrid.markdown)
+
+##### [Utils.loadJsonFile()](loadJsonFile.markdown)
