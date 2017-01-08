@@ -3,7 +3,7 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.Camera](type_camera.markdown)
+| __Library__          | [wattageTileEngine.Camera.*](type_camera.markdown)
 | __Return value__     | VOID
 | __Keywords__         | Wattage, Layer, TileLayer, EntityLayer
 | __See also__         |

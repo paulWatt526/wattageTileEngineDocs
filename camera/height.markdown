@@ -3,7 +3,7 @@
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [Number](https://docs.coronalabs.com/api/type/Number.html)
-| __Library__          | [wattageTileEngine.Camera](type_camera.markdown)
+| __Library__          | [wattageTileEngine.Camera.*](type_camera.markdown)
 | __Keywords__         | height
 | __See also__         | 
 

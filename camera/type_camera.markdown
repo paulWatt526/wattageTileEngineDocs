@@ -3,7 +3,7 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [Camera](type_camera.markdown)
-| __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
+| __Library__          | [wattageTileEngine.*](../Readme.markdown)
 | __Keywords__         | Wattage, Camera, Tile Engine
 | __See also__         |
 

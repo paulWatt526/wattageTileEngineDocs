@@ -3,7 +3,7 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [Utils](type_utils.markdown)
-| __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
+| __Library__          | [wattageTileEngine.*](../Readme.markdown)
 | __Keywords__         | Wattage, Utils, Tile Engine
 | __See also__         |
 

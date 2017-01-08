@@ -3,7 +3,7 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [LineOfSightModel](type_lineOfSightModel.markdown)
-| __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
+| __Library__          | [wattageTileEngine.*](../Readme.markdown)
 | __Keywords__         | Wattage, LineOfSightModel, Tile Engine
 | __See also__         |
 

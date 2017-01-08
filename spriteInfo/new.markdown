@@ -3,7 +3,7 @@
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.*](../Readme.markdown)
+| __Library__          | [wattageTileEngine.SpriteInfo.*](type_spriteInfo.markdown)
 | __Return value__     | [SpriteInfo](type_spriteInfo)
 | __Keywords__         | 
 | __See also__         | 

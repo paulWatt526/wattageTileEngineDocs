@@ -3,7 +3,7 @@
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.*](Readme.markdown)
+| __Library__          | [wattageTileEngine.TileLayer.*](type_tileLayer.markdown)
 | __Return value__     | [Table](http://docs.coronalabs.com/api/type/Table.html)
 | __Keywords__         | 
 | __See also__         | 

@@ -3,7 +3,7 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [Factory](type_Factory.markdown)
-| __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
+| __Library__          | [wattageTileEngine.ObjectSystem.*](../lib_objectSystem.markdown)
 | __Keywords__         |
 | __See also__         |
 

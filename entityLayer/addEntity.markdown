@@ -3,7 +3,7 @@
 |                      | &nbsp; 
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.EntityLayer](type_entityLayer.markdown)
+| __Library__          | [wattageTileEngine.EntityLayer.*](type_entityLayer.markdown)
 | __Return value__     | [Number](https://docs.coronalabs.com/api/type/Number.html), [SpriteInfo](../spriteInfo/type_spriteInfo.markdown)
 | __Keywords__         | 
 | __See also__         | 
