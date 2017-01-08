@@ -11,12 +11,17 @@
 
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+	local TileEngine = require "plugin.wattageTileEngine"
+	local Tile = TileEngine.Tile
+
+### Constructor
+
+##### [Tile.new()](new.markdown)
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [Tile.destroy()](destroy.markdown)
 
 ### Properties
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [Tile.resourceKey](resourceKey.markdown)
