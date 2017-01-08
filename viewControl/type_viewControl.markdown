@@ -11,12 +11,11 @@
 
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+	local TileEngine = require "plugin.wattageTileEngine"
+	local ViewControl = TileEngine.ViewControl
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [ViewControl.getCamera()](getCamera.markdown)
 
-### Properties
-
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [ViewControl.render()](render.markdown)
