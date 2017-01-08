@@ -23,9 +23,11 @@ local entityLayer = TileEngine.EntityLayer.new({
 })
 ``````
 
-### Functions
+### Constructor
 
 ##### [EntityLayer.new()](new.markdown)
+
+### Functions
 
 ##### [EntityLayer.clear()](clear.markdown)
 

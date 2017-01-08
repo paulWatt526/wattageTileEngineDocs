@@ -9,14 +9,29 @@
 
 ## Overview
 
+Layer which supports a grid of tiles.
+
 ## Syntax
 
-	local wattageTileEngine = require "plugin.wattageTileEngine"
+	local TileEngine = require "plugin.wattageTileEngine"
+	local TileLayer = TileEngine.TileLayer
+
+### Constructor
+
+##### [TileLayer.new()](new.markdown)
 
 ### Functions
 
-##### [wattageTileEngine.loadTable()](loadTable.markdown)
+##### [TileLayer.clear()](clear.markdown)
 
-### Properties
+##### [TileLayer.updateTile()](updateTile.markdown)
 
-##### [wattageTileEngine.PROPERTY](PROPERTY.markdown)
+##### [TileLayer.getDirtyTileCoordinates()](getDirtyTileCoordinates.markdown)
+
+##### [TileLayer.resetDirtyTileCollection()](resetDirtyTileCollection.markdown)
+
+##### [TileLayer.getRows()](getRows.markdown)
+
+##### [TileLayer.getColumns()](getColumns.markdown)
+
+##### [TileLayer.destroy()](destroy.markdown)
