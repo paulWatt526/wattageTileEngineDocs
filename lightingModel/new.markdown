@@ -48,6 +48,11 @@ True if the changes in lighting should transition smoothly.  Setting
 this to false will result in lighting conditions changing immediately.
 Setting to true will apply the changes gradually over 250 milliseconds.
 
+##### compensateLightingForViewingPosition <small>(required)</small>
+_[boolean](https://docs.coronalabs.com/api/type/Boolean.html)._
+This must be set to true if the engine also has it set to true.  However,
+doing so does require additional overhead which can affect performance.
+
 
 ## Examples
 
@@ -69,6 +74,7 @@ end
 local lightingModel = TileEngine.LightingModel.new({
     isTransparent = isTransparentForLight,
     isTileAffectedByAmbient = isTileAffectedByAmbient,
-    useTransitioners = true
+    useTransitioners = true,
+    compensateLightingForViewingPosition = false
 })
 ``````

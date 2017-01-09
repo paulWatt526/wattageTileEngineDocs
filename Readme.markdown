@@ -7,6 +7,11 @@
 | __Keywords__         | Tiles, Tile, Tile Engine, Engine
 | __See also__         | 
 
+## Quickstart
+
+The Wattage Tile Engine is easy to use.  Check out the quick
+start guide [here](quickstart.markdown) to get up and running fast.
+
 ## Overview
 
 The wattageTileEngine plugin can be used in your

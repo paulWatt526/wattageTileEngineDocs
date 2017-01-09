@@ -57,3 +57,7 @@
 ##### [LineOfSightModel.getColsTransitionedOut()](getColsTransitionedOut.markdown)
 
 ##### [LineOfSightModel.getCoordinatesIn()](getCoordinatesIn.markdown)
+
+### Properties
+
+##### [LineOfSightModel.ALL_VISIBLE](allVisible.markdown)

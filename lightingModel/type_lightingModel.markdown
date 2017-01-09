@@ -76,3 +76,5 @@ local lightingModel = TileEngine.LightingModel.new({
 ##### [LightingModel.setIsTransparentCallback()](setIsTransparentCallback.markdown)
 
 ##### [LightingModel.setIsTileAffectedByAmbientCallback()](setIsTileAffectedByAmbientCallback.markdown)
+
+##### [LightingModel.setUseTransitioners()](setUseTransitioners.markdown)

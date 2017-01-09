@@ -3,7 +3,7 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [function](http://docs.coronalabs.com/api/type/Function.html)
-| __Library__          | [wattageTileEngine.LineOfSightModel.*(type_lineOfSight.markdown)
+| __Library__          | [wattageTileEngine.LineOfSightModel.*](type_lineOfSight.markdown)
 | __Return value__     | [Number](https://docs.coronalabs.com/api/type/Number.html)
 | __Keywords__         |
 | __See also__         |
