@@ -637,6 +637,147 @@ A video of the results can be found
 
 ### Quickstart Stage 5
 
+This stage will add a moving light to the scene.  It will be the fifth
+state in the state machine and will move opposite the camera.
+
+Add a constant to define the speed of the moving light.
+
+``````lua
+local MOVING_LIGHT_SPEED= 4 / 1000          -- Moving light speed, 4 tiles per second
+``````
+
+Add variables to track the moving light ID, the direction of the moving
+light, and the moving light X position.  Lights are tracked at the
+tile coordinate level, so a variable is necessary to track the fractional
+tile position of the light.  This value will be rounded to the nearest
+tile when updating the position of the light.
+
+``````lua
+local movingLightId                         -- Will track the ID of the moving light
+local movingLightDirection                  -- Tracks the direction of the moving light
+local movingLightXPos                       -- Tracks the continous position of the moving light
+``````
+
+In the state machine init() function, set the initial direction to
+"left", which is the opposite starting direction of the camera.  Also
+set the initial X position of 14.5 which will start the light opposite
+the camera.
+
+``````lua
+-- Set the initial position and direction of the moving light
+movingLightDirection = "left"
+movingLightXPos = 14.5
+``````
+
+Change the stateMachine.update() function to continuously track the
+position of the new light and update the light position if it is
+currently active.
+
+``````lua
+stateMachine.update = function(deltaTime)
+    local xDelta = MOVING_LIGHT_SPEED * deltaTime
+    if movingLightDirection == "right" then
+        movingLightXPos = movingLightXPos + xDelta
+        if movingLightXPos > 14.5 then
+            movingLightDirection = "left"
+            movingLightXPos = 14.5 - (movingLightXPos - 14.5)
+        end
+    else
+        movingLightXPos = movingLightXPos - xDelta
+        if movingLightXPos < 0.5 then
+            movingLightDirection = "right"
+            movingLightXPos = 0.5 + (0.5 - movingLightXPos)
+        end
+    end
+    if movingLightId ~= nil then
+        lightingModel.updateLight({
+            lightId = movingLightId,
+            newRow = 8,
+            newColumn = math.floor(movingLightXPos + 0.5)
+        })
+    end
+end
+``````
+
+Update the stateMachine.next() function to have a fifth state.  This
+fifth state will activate the new moving light.  Note that the first
+state needs to be updated to transition from the new fifth state.  In
+other words, it needs to deactivate the moving light rather than the
+left light.  Also notice that state 5 sets the "Use Transitioners" flag
+to true.  With moving lights, transitioners will result in "fading" from
+one light state to the next giving a smoother look.  State 1 disables
+transitioners because lights being switched on or off need to be
+instantaneous.  You may want to try leaving the transitioners on for
+all states to see how that looks.
+
+``````lua
+stateMachine.nextState = function()
+    stateMachine.curState = stateMachine.curState + 1
+    if stateMachine.curState > 5 then
+        stateMachine.curState = 1
+    end
+
+    if stateMachine.curState == 1 then
+        lightingModel.removeLight(movingLightId)
+        movingLightId = nil
+        topLightId = lightingModel.addLight({
+            row=5,column=8,r=1,g=1,b=0.7,intensity=0.75,radius=9
+        })
+        lightingModel.setUseTransitioners(false)
+    end
+
+    if stateMachine.curState == 2 then
+        lightingModel.removeLight(topLightId)
+        topLightId = nil
+        rightLightId = lightingModel.addLight({
+            row=8,column=11,r=0,g=0,b=1,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 3 then
+        lightingModel.removeLight(rightLightId)
+        rightLightId = nil
+        bottomLightId = lightingModel.addLight({
+            row=11,column=8,r=0,g=1,b=0,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 4 then
+        lightingModel.removeLight(bottomLightId)
+        bottomLightId = nil
+        leftLightId = lightingModel.addLight({
+            row=8,column=5,r=1,g=0,b=0,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 5 then
+        lightingModel.removeLight(leftLightId)
+        leftLightId = nil
+        movingLightId = lightingModel.addLight({
+            row=8,
+            column=math.floor(movingLightXPos + 0.5),
+            r=1,g=1,b=0.7,intensity=0.75,radius=9
+        })
+        lightingModel.setUseTransitioners(true)
+    end
+end
+``````
+
+In the onFrame() event handler function, add a call to update the
+state machine and pass in the time delta.  This must be done before
+calling the LightingModel.update() function.
+
+``````lua
+-- Update the state machine
+stateMachine.update(deltaTime)
+``````
+
+The code for this stage can be found
+[here](https://github.com/paulWatt526/tileEngineQuickStart5).
+
+A video of the results can be found
+[here](https://youtu.be/Hh6cOYzcWK4).
+
 ### Quickstart Stage 6
 
 ### Quickstart Stage 7
