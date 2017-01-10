@@ -42,6 +42,7 @@ of zoom.
 
 ## Guides
 
+* [Quickstart](quickstart.markdown)
 * [Lua OOP Primer (Optional)](luaOopPrimer.markdown)
 * [ObjectSystem Usage Guide (Optional)](objectSystem/usageGuide.markdown)
 
