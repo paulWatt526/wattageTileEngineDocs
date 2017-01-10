@@ -19,3 +19,5 @@
 ##### [ViewControl.getCamera()](getCamera.markdown)
 
 ##### [ViewControl.render()](render.markdown)
+
+##### [ViewControl.destroy()](destroy.markdown)

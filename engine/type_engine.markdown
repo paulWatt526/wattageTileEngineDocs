@@ -58,3 +58,5 @@ local tileEngine = TileEngine.Engine.new({
 ##### [Engine.setActiveModule()](setActiveModule.markdown)
 
 ##### [Engine.update()](update.markdown)
+
+##### [Engine.destroy()](destroy.markdown)
