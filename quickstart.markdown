@@ -13,11 +13,11 @@ proceed to add features in the following stages:
 * Stage 1 - Use the onFrame event handler to move the camera back and
 forth.  This will illustrate how to move the camera.
 * Stage 2 - Extrude the walls to illustrate how to use parallax.
-* Stage 3 - Dim the ambient lighting and add two lights to show how
+* Stage 3 - Dim the ambient lighting and add a light to show how
 to use the lighting model.
-* Stage 4 - Use the onFrame event handler to make the two lights
-blink intermittently.  This will illustrate how to remove lights
-from the lighting model.
+* Stage 4 - Add more lights and use the tap event handler to toggle
+which light is on.  This will illustrate how to remove
+lights from the lighting model.
 * Stage 5 - Add a light which moves opposite the camera.  This will
 illustrate how to update lights dynamically.
 * Stage 6 - Add entities to move around.  This will illustrate how
@@ -523,6 +523,117 @@ A video of the results can be found
 [here](https://youtu.be/eaU-ujjuLNA).
 
 ### Quickstart Stage 4
+
+In this stage, lights will be added to the other three corners and a
+tap listener will be added to cycle through the lights.
+
+Add variables to track the other 3 lights.
+
+``````lua
+local bottomLightId                         -- Will track the ID of the bottom light
+local leftLightId                           -- Will track the ID of the left light
+local rightLightId                          -- Will track the ID of the right light
+``````
+
+Introduce a state machine with 4 states each of which has a single
+light lit.
+
+``````lua
+local stateMachine = {}
+stateMachine.init = function()
+    -- Set initial state
+    stateMachine.curState = 1
+
+    -- Add a light at the top part of the room.
+    topLightId = lightingModel.addLight({
+        row=5,column=8,r=1,g=1,b=0.7,intensity=0.75,radius=9
+    })
+end
+stateMachine.nextState = function()
+    stateMachine.curState = stateMachine.curState + 1
+    if stateMachine.curState > 4 then
+        stateMachine.curState = 1
+    end
+
+    if stateMachine.curState == 1 then
+        lightingModel.removeLight(leftLightId)
+        leftLightId = nil
+        topLightId = lightingModel.addLight({
+            row=5,column=8,r=1,g=1,b=0.7,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 2 then
+        lightingModel.removeLight(topLightId)
+        topLightId = nil
+        rightLightId = lightingModel.addLight({
+            row=8,column=11,r=0,g=0,b=1,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 3 then
+        lightingModel.removeLight(rightLightId)
+        rightLightId = nil
+        bottomLightId = lightingModel.addLight({
+            row=11,column=8,r=0,g=1,b=0,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 4 then
+        lightingModel.removeLight(bottomLightId)
+        bottomLightId = nil
+        leftLightId = lightingModel.addLight({
+            row=8,column=5,r=1,g=0,b=0,intensity=0.75,radius=9
+        })
+    end
+end
+``````
+
+Since the creation of the top light is now handled in the state machine,
+remove its declaration from the scene:create() function and replace it
+with a call to initialize the state machine.
+
+``````lua
+stateMachine.init()
+``````
+
+Create an event handler to listen for taps.  This function will advance
+the state machine to the next state.
+
+``````lua
+-- -----------------------------------------------------------------------------------
+-- An event handler for screen taps.
+-- -----------------------------------------------------------------------------------
+local function tapListener()
+    stateMachine.nextState()
+end
+``````
+
+In the scene:show() function during the "will" phase, register the
+tap listener.
+
+``````lua
+-- Register an event listener to handle screen taps.
+Runtime:addEventListener( "tap", tapListener )
+``````
+
+This will call the tapListener() function on a screen tap
+which will result in switching to the next state and thus
+switching to the next light.
+
+In the scene:hide() function during the "will" phase, unregister
+the tap listener.
+
+``````lua
+-- Remove the event listener for taps
+Runtime:removeEventListener( "tap", tapListener)
+``````
+
+The code for this stage can be found
+[here](https://github.com/paulWatt526/tileEngineQuickStart4).
+
+A video of the results can be found
+[here](https://youtu.be/kvMyjSuEnQE).
 
 ### Quickstart Stage 5
 
