@@ -780,6 +780,96 @@ A video of the results can be found
 
 ### Quickstart Stage 6
 
+This stage will add an entity which moves up and down the center of the
+room.  Add a constant to indicate the speed of the entity.
 
+``````lua
+local ENTITY_SPEED      = 4 / 1000          -- Speed of the entity, 4 tiles per second
+``````
+
+Add three new variables.  One to track the entity ID, one to track
+the entity direction and one to store a reference to the entity layer.
+
+``````lua
+local entityId                              -- Will track the ID of the entity
+local entityDirection                       -- Tracks the direction of the moving entity
+local entityLayer                           -- Reference to the entity layer
+``````
+
+In the scene:create() function, create the entity layer, add it to the
+module, and insert the entity.  The layer will be added at index 2, just
+above the floor.  The scaling delta is set to zero because the new
+layer should be scaled the same amount as the floor.
+
+``````lua
+entityLayer = TileEngine.EntityLayer.new({
+    tileSize = 32,
+    spriteResolver = spriteResolver
+})
+module.insertLayerAtIndex(entityLayer, 2, 0)
+entityId = entityLayer.addEntity("tiles_2")
+``````
+
+Also note that since a new layer has been added, the index of each
+extruded wall layer needs to be increased by one.  For this reason,
+the variable i is increase by 2 instead of 1 when inserting the wall
+layers into the module.
+
+``````lua
+module.insertLayerAtIndex(wallLayer, i + 2, SCALING_DELTA)
+``````
+
+In the scene:show() function, set the initial direction of the entity
+to "down"
+
+``````lua
+-- Initialize the entity direction to "down"
+entityDirection = "down"
+``````
+
+Use the onFrame() function to set the initial position of the entity
+on the first frame.
+
+``````lua
+-- Set the initial position of the entity
+entityLayer.centerEntityOnTile(entityId, 3, 8)
+``````
+
+The entity position will be updated in the onFrame() function as well.
+It will be added to the section that is executed on every frame after
+the first.  Note that coordinates in the entity layer are set in units
+of tiles.  This allows a coordinate to be set between two tiles.  Because
+of this, the center of tiles are between integers.  For example, the
+center of row 1, column 7 would be row 0.5 and column 6.5 when working
+in EntityLayer coordinates.
+
+The code added here will move the entity from row 3, column 8 to row 13,
+column 8, then back again.
+
+``````lua
+-- Update the position of the entity
+local entityRow, entityCol = entityLayer.getEntityTilePosition(entityId)
+local yDelta = ENTITY_SPEED * deltaTime
+if entityDirection == "down" then
+    entityRow = entityRow + yDelta
+    if entityRow > 12.5 then
+        entityDirection = "up"
+        entityRow = 12.5 - (entityRow - 12.5)
+    end
+else
+    entityRow = entityRow - yDelta
+    if entityRow < 2.5 then
+        entityDirection = "down"
+        entityRow = 2.5 + (2.5 - entityRow)
+    end
+end
+entityLayer.setEntityTilePosition(entityId, entityRow, entityCol)
+``````
+
+The code for this stage can be found
+[here](https://github.com/paulWatt526/tileEngineQuickStart6).
+
+A video of the results can be found
+[here](https://youtu.be/_RuzHU_T4A0).
 
 ### Quickstart Stage 7
