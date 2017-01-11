@@ -43,6 +43,14 @@ local entityLayer = TileEngine.EntityLayer.new({
 
 ##### [EntityLayer.centerNonResourceEntityOnTile()](centerNonResourceEntityOnTile.markdown)
 
+##### [EntityLayer.setEntityTilePosition()](setEntityTilePosition.markdown)
+
+##### [EntityLayer.getEntityTilePosition()](getEntityTilePosition.markdown)
+
+##### [EntityLayer.setNonResourceEntityTilePosition()](setNonResourceEntityTilePosition.markdown)
+
+##### [EntityLayer.getNonResourceEntityTilePosition()](getNonResourceEntityTilePosition.markdown)
+
 ##### [EntityLayer.getEntityInfo()](getEntityInfo.markdown)
 
 ##### [EntityLayer.getEntityInfos()](getEntityInfos.markdown)

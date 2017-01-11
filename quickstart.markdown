@@ -780,4 +780,6 @@ A video of the results can be found
 
 ### Quickstart Stage 6
 
+
+
 ### Quickstart Stage 7
