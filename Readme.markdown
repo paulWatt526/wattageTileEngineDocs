@@ -1,6 +1,6 @@
-![Wattage Tile Engine Logo](img/logo.png)
-
 # Wattage Tile Engine: Plugin API Docs
+
+![Wattage Tile Engine Logo](img/logo.png)
 
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
