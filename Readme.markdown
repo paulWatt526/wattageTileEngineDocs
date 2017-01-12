@@ -7,6 +7,8 @@
 | __Keywords__         | Tiles, Tile, Tile Engine, Engine
 | __See also__         | 
 
+![Wattage Tile Engine Logo](img/logo.png)
+
 ## Quickstart
 
 Find screenshots of the tile engine in action [here](#screenshots).
