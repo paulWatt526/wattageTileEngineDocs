@@ -27,6 +27,10 @@ of the entities.
 activate the line of sight feature of the engine.  This will
 illustrate the engine's capability of hiding areas that would not
 be visible to the player.
+* [Stage 8](#quickstart-stage-8) - This final stage will enable toggling the
+internal walls on and off.  This illustrates how to dynamically
+add and remove walls and have the lighting and line of sight updated
+as well.
 
 Additional Examples
 
@@ -1209,3 +1213,230 @@ The code for this stage can be found
 
 A video of the results can be found
 [here](https://youtu.be/DflZ8Sxrg8c).
+
+
+### Quickstart Stage 8
+
+This stage will enable toggling the existence of the columns in the
+room.  A button will be added to separate this functionality from
+tapping the screen to toggle the lights.
+
+Add a variable to store the toggle button.
+
+``````lua
+local toggleWallsButton                     -- Reference to the toggle botton
+``````
+
+Add a helper function to clear the wall from a tile.  This function
+will do the following for the specified tile:
+
+1. Change the floor layer tile from a wall to a floor.
+2. Skip the entity layer at index 2 and from index 3 on up, clear out
+the tiles by setting the value to nil.
+3. Notify the LightingModel that transparency has changed so that it
+knows to update itself appropriately.
+4. Make the line of sight model as dirty so it can recompute.
+
+``````lua
+local function clearWall(row, column)
+    ENVIRONMENT[row][column] = 0
+    local module = tileEngine.getActiveModule()
+    module.layers[1].layer.updateTile(row, column, TileEngine.Tile.new({
+        resourceKey="tiles_0"
+    }))
+    for i=3,#module.layers do
+        module.layers[i].layer.updateTile(row, column, nil)
+    end
+    module.lightingModel.markChangeInTransparency(row, column)
+    module.losModel.makeDirty()
+end
+``````
+
+Add a helper function to add a wall to a tile.  This function
+will do the following for the specified tile:
+
+1. Change the floor layer tile from a floor to a wall.
+2. Skip the entity layer at index 2 and from index 3 on up, add wall
+tiles.
+3. Notify the LightingModel that transparency has changed so that it
+knows to update itself appropriately.
+4. Make the line of sight model as dirty so it can recompute.
+
+``````lua
+local function addWall(row, column)
+    ENVIRONMENT[row][column] = 1
+    local module = tileEngine.getActiveModule()
+    module.layers[1].layer.updateTile(row, column, TileEngine.Tile.new({
+        resourceKey="tiles_1"
+    }))
+    for i=3,#module.layers do
+        module.layers[i].layer.updateTile(row, column, TileEngine.Tile.new({
+            resourceKey="tiles_1"
+        }))
+    end
+    module.lightingModel.markChangeInTransparency(row, column)
+    module.losModel.makeDirty()
+end
+``````
+
+Add a new state machine to track the state of pillars.  The state
+machine has 6 states:
+
+1. All pillars
+2. None
+3. Top left only
+4. Top right only
+5. Bottom left only
+6. Bottom right only
+
+``````lua
+local pillarStateMachine = {}
+pillarStateMachine.init = function()
+    pillarStateMachine.curState = 1
+end
+pillarStateMachine.nextState = function()
+    pillarStateMachine.curState = pillarStateMachine.curState + 1
+    if pillarStateMachine.curState > 6 then
+        pillarStateMachine.curState = 1
+    end
+
+    if pillarStateMachine.curState == 1 then
+        addWall(5,5)
+        addWall(6,5)
+        addWall(5,6)
+        addWall(6,6)
+
+        addWall(5,10)
+        addWall(6,10)
+        addWall(5,11)
+        addWall(6,11)
+
+        addWall(10,5)
+        addWall(11,5)
+        addWall(10,6)
+        addWall(11,6)
+    end
+
+    if pillarStateMachine.curState == 2 then
+        clearWall(5,5)
+        clearWall(6,5)
+        clearWall(5,6)
+        clearWall(6,6)
+
+        clearWall(5,10)
+        clearWall(6,10)
+        clearWall(5,11)
+        clearWall(6,11)
+
+        clearWall(10,5)
+        clearWall(11,5)
+        clearWall(10,6)
+        clearWall(11,6)
+
+        clearWall(10,10)
+        clearWall(11,10)
+        clearWall(10,11)
+        clearWall(11,11)
+    end
+
+    if pillarStateMachine.curState == 3 then
+        addWall(5,5)
+        addWall(6,5)
+        addWall(5,6)
+        addWall(6,6)
+    end
+
+    if pillarStateMachine.curState == 4 then
+        clearWall(5,5)
+        clearWall(6,5)
+        clearWall(5,6)
+        clearWall(6,6)
+
+        addWall(5,10)
+        addWall(6,10)
+        addWall(5,11)
+        addWall(6,11)
+    end
+
+    if pillarStateMachine.curState == 5 then
+        clearWall(5,10)
+        clearWall(6,10)
+        clearWall(5,11)
+        clearWall(6,11)
+
+        addWall(10,5)
+        addWall(11,5)
+        addWall(10,6)
+        addWall(11,6)
+    end
+
+    if pillarStateMachine.curState == 6 then
+        clearWall(10,5)
+        clearWall(11,5)
+        clearWall(10,6)
+        clearWall(11,6)
+
+        addWall(10,10)
+        addWall(11,10)
+        addWall(10,11)
+        addWall(11,11)
+    end
+end
+``````
+
+Add an event handler for the "toggle walls" button.  It advances the
+state of the state machine and returns true to indicate that the click
+was handled.
+
+``````lua
+-- -----------------------------------------------------------------------------------
+-- An event handler for toggling walls.
+-- -----------------------------------------------------------------------------------
+local function toggleWalls()
+    pillarStateMachine.nextState()
+    return true
+end
+``````
+
+Since walls will be added and removed, line of sight transitions are
+set to occur instantaneously for aesthetics.  The following is added
+to the scene:create() function.
+
+``````lua
+lineOfSightModel.setTransitionTime(0)
+``````
+
+Also, in the scene:create() function, initialize the pillar state machine.
+
+``````lua
+pillarStateMachine.init()
+``````
+
+Add the toggle button.
+
+``````lua
+-- Button to toggle walls
+toggleWallsButton = display.newImageRect("toggleWalls.png", 237, 64)
+toggleWallsButton.x = display.screenOriginX + 237 / 2 + 5
+toggleWallsButton.y = display.screenOriginY + 64 / 2 + 5
+toggleWallsButton:addEventListener("tap", toggleWalls)
+``````
+
+In the scene:destroy() function, release the toggle button and remove
+the listener.
+
+``````lua
+toggleWallsButton:removeEventListener("tap", toggleWalls)
+toggleWallsButton:removeSelf()
+toggleWallsButton = nil
+``````
+
+When run, a toggle button will be displayed in the top left corner.
+When clicked it will cycle through all the visibility states of the
+walls.  The lights can be toggled by tapping on the screen.
+
+The code for this stage can be found
+[here](https://github.com/paulWatt526/tileEngineQuickStart8).
+
+A video of the results can be found
+[here](https://youtu.be/4mwftgV8yz0).
