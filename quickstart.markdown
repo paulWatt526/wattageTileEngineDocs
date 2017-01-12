@@ -1419,14 +1419,23 @@ Add the toggle button.
 toggleWallsButton = display.newImageRect("toggleWalls.png", 237, 64)
 toggleWallsButton.x = display.screenOriginX + 237 / 2 + 5
 toggleWallsButton.y = display.screenOriginY + 64 / 2 + 5
+``````
+
+In the "will show" section of scene:show(), register the listener.
+
+``````lua
 toggleWallsButton:addEventListener("tap", toggleWalls)
 ``````
 
-In the scene:destroy() function, release the toggle button and remove
-the listener.
+In the "will hide" section of scene:hide(), remove the listener.
 
 ``````lua
 toggleWallsButton:removeEventListener("tap", toggleWalls)
+``````
+
+In the scene:destroy() function, release the toggle button.
+
+``````lua
 toggleWallsButton:removeSelf()
 toggleWallsButton = nil
 ``````
