@@ -10,7 +10,10 @@
 ## Quickstart
 
 The Wattage Tile Engine is easy to use.  Check out the quick
-start guide [here](quickstart.markdown) to get up and running fast.
+start guide [here](quickstart.markdown) to get up and running fast.  Or
+download the [template](https://github.com/paulWatt526/wattageTileEngineAppTemplate)
+and start your own project.  Be sure to check out the variety of
+sample code [below](#sample-code).
 
 ## Overview
 
@@ -106,22 +109,39 @@ If you have activated this plugin, you can download this plugin from the corresp
 
 ## Platform-specific Notes
 
-[Insert discussion on issues specific to iOS/Android/etc, or to specific devices]
-
+None.
 
 ## Resources
 
 ### Sample Code
 
-You can access sample code [here](SAMPLE_CODE_URL).
+The template serves as a bare bones example.
+
+* [Template Code](https://github.com/paulWatt526/wattageTileEngineAppTemplate)
+
+The [Quickstart Guide](quickstart.markdown)
+walks through all of the following sample code:
+
+* [Quickstart Stage 1 Code](https://github.com/paulWatt526/tileEngineQuickStart1)
+* [Quickstart Stage 2 Code](https://github.com/paulWatt526/tileEngineQuickStart2)
+* [Quickstart Stage 3 Code](https://github.com/paulWatt526/tileEngineQuickStart3)
+* [Quickstart Stage 4 Code](https://github.com/paulWatt526/tileEngineQuickStart4)
+* [Quickstart Stage 5 Code](https://github.com/paulWatt526/tileEngineQuickStart5)
+* [Quickstart Stage 6 Code](https://github.com/paulWatt526/tileEngineQuickStart6)
+* [Quickstart Stage 7 Code](https://github.com/paulWatt526/tileEngineQuickStart7)
+* [Quickstart Stage 8 Code](https://github.com/paulWatt526/tileEngineQuickStart8)
+
+Additional Examples
+
+* [Loading level from Tiled -- Coming VERY soon]()
 
 ### Support
 
 More support is available from the Blind Prophet Software, LLC team:
 
 * [E-mail](mailto://contact@blindprophetsoftware.com@http://www.blindprophetsoftware.com)
-* [Forum](http://http://blindprophetsoftware.boards.net)
-* [Plugin Publisher](http://http://www.blindprophetsoftware.com)
+* [Forum](http://blindprophetsoftware.boards.net)
+* [Plugin Publisher](http://www.blindprophetsoftware.com)
 
 
 ## Compatibility
