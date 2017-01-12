@@ -58,6 +58,8 @@
 
 ##### [LineOfSightModel.getCoordinatesIn()](getCoordinatesIn.markdown)
 
+##### [LineOfSightModel.setTransitionTime()](setTransitionTime.markdown)
+
 ### Properties
 
 ##### [LineOfSightModel.ALL_VISIBLE](allVisible.markdown)
