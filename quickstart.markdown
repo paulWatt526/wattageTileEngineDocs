@@ -20,12 +20,12 @@ which light is on.  This will illustrate how to remove
 lights from the lighting model.
 * Stage 5 - Add a light which moves opposite the camera.  This will
 illustrate how to update lights dynamically.
-* Stage 6 - Add entities to move around.  This will illustrate how
+* Stage 6 - Add an entity to move around.  This will illustrate how
 to use the EntityLayer and show how lighting affects the shading
 of the entities.
 * Stage 7 - This stage will add a token to represent the player and
 activate the line of sight feature of the engine.  This will
-illustrate the engines capability of hiding areas that would not
+illustrate the engine's capability of hiding areas that would not
 be visible to the player.
 
 Additional Examples
@@ -38,7 +38,7 @@ used to create levels.
 The template contains the boilerplate code needed to set up
 a project for the Wattage Tile Engine.  It is hosted on Github
 [here](https://github.com/paulWatt526/wattageTileEngineAppTemplate).
-When run it should display a single plus sign shaped room as in the
+When run, it should display a single plus sign shaped room as in the
 following image:
 
 ![Screenshot of template running](img/templateScreenShot.png)
@@ -417,6 +417,8 @@ end
 camera.setLocation(curXPos, camera.getY())
 ``````
 
+When run, the plus sign shaped room should move left and right.
+
 The code for this stage can be found
 [here](https://github.com/paulWatt526/tileEngineQuickStart1).
 
@@ -481,6 +483,9 @@ for i=1,WALL_LAYER_COUNT do
     module.insertLayerAtIndex(wallLayer, i + 1, SCALING_DELTA)
 end
 ``````
+
+When run, the plus sign shaped room should move left and right and the
+walls should be extruded to give a sense of depth.
 
 The code for this stage can be found
 [here](https://github.com/paulWatt526/tileEngineQuickStart2).
@@ -629,6 +634,8 @@ the tap listener.
 Runtime:removeEventListener( "tap", tapListener)
 ``````
 
+When run, the lights can be toggled by tapping the screen.
+
 The code for this stage can be found
 [here](https://github.com/paulWatt526/tileEngineQuickStart4).
 
@@ -772,6 +779,8 @@ calling the LightingModel.update() function.
 stateMachine.update(deltaTime)
 ``````
 
+When run, the lights can be toggled by tapping the screen.
+
 The code for this stage can be found
 [here](https://github.com/paulWatt526/tileEngineQuickStart5).
 
@@ -781,7 +790,9 @@ A video of the results can be found
 ### Quickstart Stage 6
 
 This stage will add an entity which moves up and down the center of the
-room.  Add a constant to indicate the speed of the entity.
+room.
+
+Add a constant to indicate the speed of the entity.
 
 ``````lua
 local ENTITY_SPEED      = 4 / 1000          -- Speed of the entity, 4 tiles per second
@@ -866,6 +877,10 @@ end
 entityLayer.setEntityTilePosition(entityId, entityRow, entityCol)
 ``````
 
+When run, a yellow circle will move up and down in the middle of the
+plus sign shaped room.  The lights can be toggled by tapping on the
+screen.
+
 The code for this stage can be found
 [here](https://github.com/paulWatt526/tileEngineQuickStart6).
 
@@ -873,3 +888,321 @@ A video of the results can be found
 [here](https://youtu.be/_RuzHU_T4A0).
 
 ### Quickstart Stage 7
+
+This stage will add a token to represent a player.  The line of sight
+feature will be activated which results in not rendering tiles that are
+out of the line of sight of the player.
+
+Changes in this stage fall into two categories: cosmetic and core.  Core
+changes will be covered first.
+
+Add a variable to track the player token's ID.
+
+``````lua
+local playerTokenId                         -- Will track the ID of the player token.
+``````
+
+In the scene:create() function, create the player token in the entity layer.
+
+``````lua
+playerTokenId = entityLayer.addEntity("tiles_3")
+``````
+
+In the onFrame() function in the section which runs on the first frame,
+set the initial position of the player token.
+
+``````lua
+-- Set the initial position of the player token
+entityLayer.centerEntityOnTile(playerTokenId, 8, 2)
+``````
+
+In the onFrame() function in the section which runs every frame after
+the first frame, update the position of the player token relative to
+the camera.
+
+``````lua
+-- Set the entity position
+entityLayer.setEntityTilePosition(playerTokenId, camera.getY(), curXPos)
+``````
+
+Next, the tile engine needs to be configured to hide tiles that are not
+in the player's line of sight.  The first thing that needs to be done
+is to set the "compensateLightingForViewingPosition" variable to true and set
+the "hideOutOfSightElements" variable to true.
+
+You may be wondering why the variable
+"compensateLightingForViewingPosition" is being set to true.  Consider
+the case where an environment has a wall with a red light on one side
+and a green light on the other side.  For many games, this wall should
+be yellow (a combination of red and green).  However, for a game like
+a dungeon crawler, the player should only see the effects of one light,
+and which light depends on the player's position.  Setting this variable
+to true will result in either drawing the tile red or green depending
+on the player position.
+
+``````lua
+-- Create an instance of TileEngine.
+tileEngine = TileEngine.Engine.new({
+    parentGroup=tileEngineLayer,
+    tileSize=32,
+    spriteResolver=spriteResolver,
+    compensateLightingForViewingPosition=true,
+    hideOutOfSightElements=true
+})
+``````
+
+Compensating lighting for viewing position requires additional
+book keeping by the lighting model.  This requires a bit of additional
+processing, so it is disabled when not needed.  Since it is needed,
+set "compensateLightingForViewingPosition" to true.
+
+``````lua
+lightingModel = TileEngine.LightingModel.new({
+    isTransparent = isTileTransparent,
+    isTileAffectedByAmbient = allTilesAffectedByAmbient,
+    useTransitioners = false,
+    compensateLightingForViewingPosition = true
+})
+``````
+
+Create the line of sight model.  The same isTransparent callback that
+was used for the lighting model can be used here.  The radius represents
+the radius of the player's max viewing circle.
+
+``````lua
+-- An instance of LineOfSightModel is created for the module to
+-- track which tiles are visible.
+local lineOfSightModel = TileEngine.LineOfSightModel.new({
+    radius = 20,
+    isTransparent = isTileTransparent
+})
+``````
+
+Transitions between line of sight states can be configured to change
+smoothly over time.  Here, the transition time is set to 225 milliseconds.
+
+``````lua
+lineOfSightModel.setTransitionTime(225)
+``````
+
+Up until this point, the ALL_VISIBLE line of sight model has been used.
+Now, the LineOfSightModel created above will be passed into the module.
+
+``````lua
+-- Instantiate the module.
+local module = TileEngine.Module.new({
+    name="moduleMain",
+    rows=ROW_COUNT,
+    columns=COLUMN_COUNT,
+    lightingModel=lightingModel,
+    losModel=lineOfSightModel
+})
+``````
+
+In the onFrame() function, in the section that is run for the first frame,
+set the initial position for the line of sight model.
+
+``````lua
+-- Set the initial position of the player to match the
+-- position of the camera.  Pass in a time delta of 1 since this is
+-- the first frame.
+lineOfSightModel.update(8, 3, 1)
+``````
+
+In the onFrame() function, in the section run every frame afte the first,
+update the line of sight model for the current player position (which
+is the same as the camera).  The tile coordinates must be integers, so
+Math.floor() is used to round to nearest integer.
+
+``````lua
+-- Update the line of sight model passing the row and column for the current
+-- point of view nad the amount of time that has passed
+-- since the last frame.
+lineOfSightModel.update(8, math.floor(curXPos + 0.5), deltaTime)
+``````
+
+Just like the lighting model, the line of sight model tracks a lot of
+things and must be reset at the end of every frame.
+
+``````lua
+-- The line of sight model also tracks changes to the player position.
+-- It is necessary to reset the change tracking to provide a clean
+-- slate for the next frame.
+lineOfSightModel.resetDirtyFlags()
+``````
+
+The rest of the changes in this stage are cosmetic.
+
+The environment has been changed to contain pillars.
+
+``````lua
+local ENVIRONMENT = {
+    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,1,1,0,0,0,1,1,0,0,0,1},
+    {1,0,0,0,1,1,0,0,0,1,1,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,1,1,0,0,0,1,1,0,0,0,1},
+    {1,0,0,0,1,1,0,0,0,1,1,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+    {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+}
+``````
+
+The state machine has been updated with a number of changes.
+
+* A new state has been added at the end to turn the ambient lighting up
+and all lights off in order to show the line of sight effects more
+clearly.
+* The moving light has been moved to the initial state.
+* The path of the moving light has been moved away from the walls.
+
+``````lua
+local stateMachine = {}
+stateMachine.init = function()
+    -- Set initial state
+    stateMachine.curState = 0
+
+    -- Set the initial position and direction of the moving light
+    movingLightDirection = "right"
+    movingLightXPos = 1.5
+
+    -- Set up for state 0
+    movingLightId = lightingModel.addLight({
+        row=8,
+        column=math.floor(movingLightXPos + 0.5),
+        r=1,g=1,b=0.7,intensity=0.75,radius=9
+    })
+    lightingModel.setUseTransitioners(true)
+    lightingModel.setAmbientLight(1,1,1,0.15)
+end
+stateMachine.update = function(deltaTime)
+    local xDelta = MOVING_LIGHT_SPEED * deltaTime
+    if movingLightDirection == "right" then
+        movingLightXPos = movingLightXPos + xDelta
+        if movingLightXPos > 13.5 then
+            movingLightDirection = "left"
+            movingLightXPos = 13.5 - (movingLightXPos - 13.5)
+        end
+    else
+        movingLightXPos = movingLightXPos - xDelta
+        if movingLightXPos < 1.5 then
+            movingLightDirection = "right"
+            movingLightXPos = 1.5 + (1.5 - movingLightXPos)
+        end
+    end
+    if movingLightId ~= nil then
+        lightingModel.updateLight({
+            lightId = movingLightId,
+            newRow = 8,
+            newColumn = math.floor(movingLightXPos + 0.5)
+        })
+    end
+end
+stateMachine.nextState = function()
+    stateMachine.curState = stateMachine.curState + 1
+    if stateMachine.curState > 5 then
+        stateMachine.curState = 0
+    end
+
+    if stateMachine.curState == 0 then
+        movingLightId = lightingModel.addLight({
+            row=8,
+            column=math.floor(movingLightXPos + 0.5),
+            r=1,g=1,b=0.7,intensity=0.75,radius=9
+        })
+        lightingModel.setUseTransitioners(true)
+        lightingModel.setAmbientLight(1,1,1,0.15)
+    end
+
+    if stateMachine.curState == 1 then
+        lightingModel.removeLight(movingLightId)
+        movingLightId = nil
+        topLightId = lightingModel.addLight({
+            row=5,column=8,r=1,g=1,b=0.7,intensity=0.75,radius=9
+        })
+        lightingModel.setUseTransitioners(false)
+    end
+
+    if stateMachine.curState == 2 then
+        lightingModel.removeLight(topLightId)
+        topLightId = nil
+        rightLightId = lightingModel.addLight({
+            row=8,column=11,r=0,g=0,b=1,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 3 then
+        lightingModel.removeLight(rightLightId)
+        rightLightId = nil
+        bottomLightId = lightingModel.addLight({
+            row=11,column=8,r=0,g=1,b=0,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 4 then
+        lightingModel.removeLight(bottomLightId)
+        bottomLightId = nil
+        leftLightId = lightingModel.addLight({
+            row=8,column=5,r=1,g=0,b=0,intensity=0.75,radius=9
+        })
+    end
+
+    if stateMachine.curState == 5 then
+        lightingModel.removeLight(leftLightId)
+        leftLightId = nil
+        lightingModel.setAmbientLight(1,1,1,0.75)
+    end
+end
+``````
+
+The camera path is changed to prevent it from passing over walls since the
+player token is synced with it.
+
+Update each frame...
+
+``````lua
+-- Update the position of the camera
+local curXPos = camera.getX()
+local xDelta = CAMERA_SPEED * deltaTime
+if cameraDirection == "right" then
+    curXPos = curXPos + xDelta
+    if curXPos > 13.5 then
+        cameraDirection = "left"
+        curXPos = 13.5 - (curXPos - 13.5)
+    end
+else
+    curXPos = curXPos - xDelta
+    if curXPos < 1.5 then
+        cameraDirection = "right"
+        curXPos = 1.5 + (1.5 - curXPos)
+    end
+end
+camera.setLocation(curXPos, camera.getY())
+``````
+
+Update initial position...
+
+``````lua
+-- This is the initial position of the camera
+camera.setLocation(1.5, 7.5)
+``````
+
+Finally, ambient lighting is no longer set in the scene:onCreate()
+function.
+
+When run, areas of the environment that the player would not be able to
+see will be blacked out.  The lights can be toggled by tapping on the
+screen.
+
+The code for this stage can be found
+[here](https://github.com/paulWatt526/tileEngineQuickStart7).
+
+A video of the results can be found
+[here](https://youtu.be/DflZ8Sxrg8c).
