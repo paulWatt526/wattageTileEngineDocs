@@ -34,6 +34,7 @@ local lightingModel = TileEngine.LightingModel.new({
     useTransitioners = true
 })
 ``````
+
 ### Constructor
 
 ##### [LightingModel.new()](new.markdown)
