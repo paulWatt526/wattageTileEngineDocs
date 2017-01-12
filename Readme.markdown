@@ -9,6 +9,8 @@
 
 ## Quickstart
 
+Find screenshots of the tile engine in action [here](#screenshots).
+
 The Wattage Tile Engine is easy to use.  Check out the quick
 start guide [here](quickstart.markdown) to get up and running fast.  Or
 download the [template](https://github.com/paulWatt526/wattageTileEngineAppTemplate)
@@ -160,3 +162,28 @@ More support is available from the Blind Prophet Software, LLC team:
 | Corona Simulator (Mac)       | Yes
 | Corona Simulator (Win)       | Yes
 
+## Screenshots
+
+### Racing Game
+
+![Racing screenshot 1](img/racing2.png)
+
+![Racing screenshot 1](img/racing3.png)
+
+### Roguelike
+
+![Roguelike screenshot 1](img/rogue1.png)
+
+![Roguelike screenshot 2](img/rogue3.png)
+
+![Roguelike screenshot 3](img/rogue4.png)
+
+### Tech Demo
+
+![Tech deom screenshot 1](img/tech1.png)
+
+![Tech deom screenshot 2](img/tech2.png)
+
+![Tech deom screenshot 3](img/tech3.png)
+
+![Tech deom screenshot 4](img/tech4.png)
