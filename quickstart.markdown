@@ -10,20 +10,20 @@ build upon the Wattage Tile Engine template which can be found
 This document will first walk through the vanilla template, then
 proceed to add features in the following stages:
 
-* Stage 1 - Use the onFrame event handler to move the camera back and
+* [Stage 1](#quickstart-stage-1) - Use the onFrame event handler to move the camera back and
 forth.  This will illustrate how to move the camera.
-* Stage 2 - Extrude the walls to illustrate how to use parallax.
-* Stage 3 - Dim the ambient lighting and add a light to show how
+* [Stage 2](#quickstart-stage-2) - Extrude the walls to illustrate how to use parallax.
+* [Stage 3](#quickstart-stage-3) - Dim the ambient lighting and add a light to show how
 to use the lighting model.
-* Stage 4 - Add more lights and use the tap event handler to toggle
+* [Stage 4](#quickstart-stage-4) - Add more lights and use the tap event handler to toggle
 which light is on.  This will illustrate how to remove
 lights from the lighting model.
-* Stage 5 - Add a light which moves opposite the camera.  This will
+* [Stage 5](#quickstart-stage-5) - Add a light which moves opposite the camera.  This will
 illustrate how to update lights dynamically.
-* Stage 6 - Add an entity to move around.  This will illustrate how
+* [Stage 6](#quickstart-stage-6) - Add an entity to move around.  This will illustrate how
 to use the EntityLayer and show how lighting affects the shading
 of the entities.
-* Stage 7 - This stage will add a token to represent the player and
+* [Stage 7](#quickstart-stage-7) - This stage will add a token to represent the player and
 activate the line of sight feature of the engine.  This will
 illustrate the engine's capability of hiding areas that would not
 be visible to the player.
