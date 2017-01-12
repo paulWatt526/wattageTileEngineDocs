@@ -139,7 +139,7 @@ Additional Examples
 
 More support is available from the Blind Prophet Software, LLC team:
 
-* [E-mail](mailto://contact@blindprophetsoftware.com@http://www.blindprophetsoftware.com)
+* [E-mail](mailto://contact@blindprophetsoftware.com)
 * [Forum](http://blindprophetsoftware.boards.net)
 * [Plugin Publisher](http://www.blindprophetsoftware.com)
 
