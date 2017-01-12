@@ -1,3 +1,5 @@
+![Wattage Tile Engine Logo](img/logo.png)
+
 # Wattage Tile Engine: Plugin API Docs
 
 |                      | &nbsp;
@@ -6,8 +8,6 @@
 | __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
 | __Keywords__         | Tiles, Tile, Tile Engine, Engine
 | __See also__         | 
-
-![Wattage Tile Engine Logo](img/logo.png)
 
 ## Quickstart
 
