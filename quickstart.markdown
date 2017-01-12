@@ -1009,7 +1009,7 @@ set the initial position for the line of sight model.
 lineOfSightModel.update(8, 3, 1)
 ``````
 
-In the onFrame() function, in the section run every frame afte the first,
+In the onFrame() function, in the section run every frame after the first,
 update the line of sight model for the current player position (which
 is the same as the camera).  The tile coordinates must be integers, so
 Math.floor() is used to round to nearest integer.
@@ -1020,6 +1020,9 @@ Math.floor() is used to round to nearest integer.
 -- since the last frame.
 lineOfSightModel.update(8, math.floor(curXPos + 0.5), deltaTime)
 ``````
+
+**NOTE: The call to LineOfSightModel.update() must occur before the
+call to LightingModel.update().**
 
 Just like the lighting model, the line of sight model tracks a lot of
 things and must be reset at the end of every frame.
