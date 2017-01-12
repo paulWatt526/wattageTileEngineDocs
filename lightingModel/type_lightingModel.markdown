@@ -59,6 +59,8 @@ local lightingModel = TileEngine.LightingModel.new({
 
 ##### [LightingModel.markLightAsDirtyIfAffectedAreaContainsTile()](markLightAsDirtyIfAffectedAreaContainsTile.markdown)
 
+##### [LightingModel.markChangeInTransparency()](markChangeInTransparency.markdown)
+
 ##### [LightingModel.getAggregateLightIfRowColumnOpaque()](getAggregateLightIfRowColumnOpaque.markdown)
 
 ##### [LightingModel.getAggregateLight()](getAggregateLight.markdown)
