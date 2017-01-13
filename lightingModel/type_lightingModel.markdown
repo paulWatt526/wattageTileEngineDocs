@@ -31,7 +31,8 @@ end
 local lightingModel = TileEngine.LightingModel.new({
     isTransparent = isTransparentForLight,
     isTileAffectedByAmbient = isTileAffectedByAmbient,
-    useTransitioners = true
+    useTransitioners = true,
+    compensateLightingForViewingPosition = false
 })
 ``````
 

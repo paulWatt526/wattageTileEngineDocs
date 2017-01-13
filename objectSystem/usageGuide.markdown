@@ -258,7 +258,7 @@ CountryClass.new = function(params)
     function self.save(diskStream)
         parentSave(diskStream)
 
-        // write properties
+        -- write properties
         diskStream.write(name)
     end
 
@@ -266,7 +266,7 @@ CountryClass.new = function(params)
     function self.load(diskStream)
         parentLoad(diskStream)
 
-        // read properties
+        -- read properties
         name = diskStream.read()
     end
 
@@ -330,18 +330,18 @@ CompanyClass.new = function(params)
     function self.save(diskStream)
         parentSave(diskStream)
 
-        // write properties
+        -- write properties
         diskStream.write(name)
 
-        // write references
+        -- write references
 
-        // write country
+        -- write country
         diskStream.write(country.getObjectId())
 
-        // first write count of employee references
+        -- first write count of employee references
         diskStream.write(#employees)
 
-        // now write the IDs of employee references
+        -- now write the IDs of employee references
         for i=1,#employees do
             diskStream.write(employees[i].getObjectId()
         end
@@ -351,19 +351,19 @@ CompanyClass.new = function(params)
     function self.load(diskStream)
         parentLoad(diskStream)
 
-        // read properties
+        -- read properties
         name = diskStream.read()
 
-        // read references
+        -- read references
 
-        // read country
+        -- read country
         local countryObjectId = diskStream.read()
         diskStream.registerLink(countryObjectId)
 
-        // first read count of employee references
+        -- first read count of employee references
         self._employeeCount = diskStream.read()
 
-        // new read IDs of employee references and register a link for each
+        -- new read IDs of employee references and register a link for each
         for i=1,self._employeeCount do
             local objectId = diskStream.read()
             diskStream.registerLink(objectId)
@@ -374,10 +374,10 @@ CompanyClass.new = function(params)
     function self.link(diskStream)
         parentLink(diskStream)
 
-        // link country
+        -- link country
         country = diskStream.getNewObjectForOldId(diskStream.getNextLink())
 
-        // link employees
+        -- link employees
         for i=1,self._employeeCount do
             table.insert(employees, diskStream.getNewObjectForOldId(diskStream.getNextLink())
         end
@@ -408,7 +408,7 @@ ProjectClass.new = function(params)
     function self.save(diskStream)
         parentSave(diskStream)
 
-        // write properties
+        -- write properties
         diskStream.write(name)
     end
 
@@ -416,7 +416,7 @@ ProjectClass.new = function(params)
     function self.load(diskStream)
         parentLoad(diskStream)
 
-        // read properties
+        -- read properties
         name = diskStream.read()
     end
 
@@ -464,10 +464,10 @@ EmployeeClass.new = function(params)
     function self.save(diskStream)
         parentSave(diskStream)
 
-        // write properties
+        -- write properties
         diskStream.write(name)
 
-        // write references
+        -- write references
         if project ~= nil then
             diskStream.write(project.getObjectId())
         else
@@ -479,10 +479,10 @@ EmployeeClass.new = function(params)
     function self.load(diskStream)
         parentLoad(diskStream)
 
-        // read properties
+        -- read properties
         name = diskStream.read()
 
-        // read references
+        -- read references
         self._projectValue = diskStream.read()
         if self._projectValue ~= "NULL" then
             diskStream.registerLink(self._projectValue)
