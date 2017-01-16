@@ -11,7 +11,7 @@
 
 ## Quickstart
 
-Find screenshots of the tile engine in action [here](#screenshots).  A
+Find screenshots of the tile engine in action [here](#screenshots), and a
 video of the tech demo [here](#videos).
 
 The Wattage Tile Engine is easy to use.  Check out the quick
@@ -138,7 +138,7 @@ walks through all of the following sample code:
 
 Additional Examples
 
-* [Loading level from Tiled -- Coming VERY soon]()
+* [Loading level from Tiled](tiledExample.markdown)
 
 ### Support
 

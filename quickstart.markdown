@@ -12,7 +12,10 @@ proceed to add features in the following stages:
 
 * [Stage 1](#quickstart-stage-1) - Use the onFrame event handler to move the camera back and
 forth.  This will illustrate how to move the camera.
-* [Stage 2](#quickstart-stage-2) - Extrude the walls to illustrate how to use parallax.
+* [Stage 2](#quickstart-stage-2) - Extrude the walls to illustrate how
+scaling layers can result in one form of parallax.  Achieving parallax
+scrolling by means of X and Y coefficients, see the example of loading
+file from Tiled [here](tiledExample.markdown)
 * [Stage 3](#quickstart-stage-3) - Dim the ambient lighting and add a light to show how
 to use the lighting model.
 * [Stage 4](#quickstart-stage-4) - Add more lights and use the tap event handler to toggle
@@ -34,8 +37,9 @@ as well.
 
 Additional Examples
 
-* Example Loading a Tiled File - This will illustrate how Tiled can be
-used to create levels.
+* [Example Loading a Tiled File](tiledExample.markdown) - This will
+illustrate how Tiled can be used to create levels.  It will also
+demonstrate parallax scrolling using X and Y coefficients.
 
 ## Template Explanation
 
