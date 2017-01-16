@@ -23,7 +23,7 @@ lower index.
 
 ## Syntax
 
-	Module.insertLayerAtIndex( layer, index, scalingDelta )
+	Module.insertLayerAtIndex( layer, index, scalingDelta, xScrollCoefficient, yScrollCoefficient )
 
 ##### layer <small>(required)</small>
 _Layer._
@@ -40,6 +40,21 @@ The index to insert at.
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._
 The difference in scaling between this layer and the layer before it.
 
+##### xScrollCoefficient <small>(optional)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The coefficient applied to camera X position.  This can be used to
+implement parallax scrolling.  A value greater than 1 makes this
+scroll faster than the camera.  A value smaller than 1 makes this
+scroll slower than the camera.  The default value is 1 which results
+in a speed which matches the camera.
+
+##### yScrollCoefficient <small>(optional)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The coefficient applied to camera Y position.  This can be used to
+implement parallax scrolling.  A value greater than 1 makes this
+scroll faster than the camera.  A value smaller than 1 makes this
+scroll slower than the camera.  The default value is 1 which results
+in a speed which matches the camera.
 
 ## Examples
 
