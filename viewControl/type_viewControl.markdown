@@ -14,6 +14,10 @@
 	local TileEngine = require "plugin.wattageTileEngine"
 	local ViewControl = TileEngine.ViewControl
 
+### Constructor
+
+##### [ViewControl.new()](new.markdown)
+
 ### Functions
 
 ##### [ViewControl.getCamera()](getCamera.markdown)

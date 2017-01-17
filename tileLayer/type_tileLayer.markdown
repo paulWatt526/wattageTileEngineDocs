@@ -35,3 +35,7 @@ Layer which supports a grid of tiles.
 ##### [TileLayer.getColumns()](getColumns.markdown)
 
 ##### [TileLayer.destroy()](destroy.markdown)
+
+##### [TileLayer.setLightingMode()](setLightingMode.markdown)
+
+##### [TileLayer.getLightingMode()](getLightingMode.markdown)
