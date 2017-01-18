@@ -66,7 +66,7 @@ function self.registerObject(diskStream)
         return false
     end
 
-    // register member references
+    -- register member references
     reference.registerObject(diskStream)
 end
 ``````
@@ -86,11 +86,11 @@ local parentSave = self.save
 function self.save(diskStream)
     parentSave(diskStream)
 
-    // write properties
+    -- write properties
     diskStream.write(property1)
     diskStream.write(property2)
 
-    // write references
+    -- write references
     diskStream.write(reference1.getObjectId())
     diskStream.write(reference2.getObjectId())
 end
@@ -113,11 +113,11 @@ local parentLoad = self.load
 function self.load(diskStream)
     parentLoad(diskStream)
 
-    // read properties
+    -- read properties
     property1 = diskStream.read()
     property2 = diskStream.read()
 
-    // read references
+    -- read references
     local reference1Id = diskStream.read()
     diskStream.registerLink(reference1Id)
 
