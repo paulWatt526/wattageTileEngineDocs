@@ -40,7 +40,7 @@ _[function](http://docs.coronalabs.com/api/type/Function.html)._
 Callback which returns true if the tile is affected by ambient lighting.
 The callback must have the following signature:
 
-    boolean function(column, row)
+    boolean function(row, column)
 
 ##### useTransitioners <small>(required)</small>
 _[boolean](https://docs.coronalabs.com/api/type/Boolean.html)._
