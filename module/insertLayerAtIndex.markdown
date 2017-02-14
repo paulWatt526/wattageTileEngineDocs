@@ -20,10 +20,17 @@ When adding a layer, a scaling delta may be specified.  This scaling
 delta indicates the difference in scaling from the layer with the next
 lower index.
 
+The xScrollCoefficient and yScrollCoefficient parameters may be used to alter the
+rate of scrolling in X and Y directions for each layer.  A value less
+than 1 will slow scrolling and a value greater than 1 will speed up
+scrolling.
+
+The xOffset and yOffset parameters may be used to translate the layers
+in the X and Y directions.
 
 ## Syntax
 
-	Module.insertLayerAtIndex( layer, index, scalingDelta, xScrollCoefficient, yScrollCoefficient )
+	Module.insertLayerAtIndex( layer, index, scalingDelta, xScrollCoefficient, yScrollCoefficient, xOffset, yOffset )
 
 ##### layer <small>(required)</small>
 _Layer._
@@ -55,6 +62,16 @@ implement parallax scrolling.  A value greater than 1 makes this
 scroll faster than the camera.  A value smaller than 1 makes this
 scroll slower than the camera.  The default value is 1 which results
 in a speed which matches the camera.
+
+##### xOffset <small>(optional)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The amount to offset the layer in the X direction.  This is in number
+of tiles, not pixels.  If not specified, the default is 0.
+
+##### yOffset <small>(optional)</small>
+_[Number](https://docs.coronalabs.com/api/type/Number.html)._
+The amount to offset the layer in the Y direction.  This is in number
+of tiles, not pixels.  If not specified, the default is 0.
 
 ## Examples
 

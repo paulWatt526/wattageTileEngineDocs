@@ -460,7 +460,7 @@ When run, the user is able to slide their finger along the control stick
 and see the player token move in response.  The camera will follow the
 player token.
 
-The code for this stage can be found
+The code for this example can be found
 [here](https://github.com/paulWatt526/wattagePhysicsExample).
 
 A video of the results can be found
