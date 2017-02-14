@@ -196,3 +196,4 @@ More support is available from the Blind Prophet Software, LLC team:
 
 * [Tech Demo](https://youtu.be/eTEtrMImJu0)
 * [Parallax Scrolling](https://youtu.be/I_i6erwuDcI)
+* [Racing Example (with parallax)](https://youtu.be/s-jux4R9auk)
