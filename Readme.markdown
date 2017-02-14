@@ -1,4 +1,4 @@
-# Wattage Tile Engine: Plugin API Docs U
+# Wattage Tile Engine: Plugin API Docs
 
 ![Wattage Tile Engine Logo](img/logo.png)
 
