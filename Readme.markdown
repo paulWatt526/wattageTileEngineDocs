@@ -139,6 +139,7 @@ walks through all of the following sample code:
 Additional Examples
 
 * [Loading level from Tiled](tiledExample.markdown)
+* [Integrating Physics Objects](physicsExample.markdown)
 
 ### Support
 
