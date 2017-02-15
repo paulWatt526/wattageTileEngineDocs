@@ -343,7 +343,7 @@ CompanyClass.new = function(params)
 
         -- now write the IDs of employee references
         for i=1,#employees do
-            diskStream.write(employees[i].getObjectId()
+            diskStream.write(employees[i].getObjectId())
         end
     end
 
@@ -379,7 +379,7 @@ CompanyClass.new = function(params)
 
         -- link employees
         for i=1,self._employeeCount do
-            table.insert(employees, diskStream.getNewObjectForOldId(diskStream.getNextLink())
+            table.insert(employees, diskStream.getNewObjectForOldId(diskStream.getNextLink()))
         end
         self._employeeCount = nil
     end
