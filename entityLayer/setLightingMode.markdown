@@ -16,6 +16,8 @@ modes available are:
 
 * Ambient Only - Only ambient lighting applies to this layer.
 * All - All lighting applies to this layer.
+* None - No lighting is applied to this layer.  The sprites
+are drawn "as is".
 
 There are constants defined for the modes:
 
@@ -24,6 +26,7 @@ local TileEngine = require "plugin.wattageTileEngine"
 
 TileEngine.LayerConstants.LIGHTING_MODE_APPLY_ALL
 TileEngine.LayerConstants.LIGHTING_MODE_AMBIENT_ONLY
+TileEngine.LayerConstants.LIGHTING_MODE_NONE
 ``````
 
 The default mode is LIGHTING_MODE_APPLY_ALL.

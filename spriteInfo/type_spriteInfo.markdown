@@ -19,7 +19,7 @@ entity layers.
 
 ### Constructor
 
-##### [SpriteInfo.new()](new.markdown)
+##### ***DEPRECATED*** [SpriteInfo.new()](new.markdown)
 
 ### Functions
 

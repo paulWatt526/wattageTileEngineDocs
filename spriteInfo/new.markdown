@@ -11,10 +11,22 @@
 
 ## Overview
 
+***NOTE: THIS FUNCTION IS DEPRECATED.  IN ITS PLACE SIMPLY USE A TABLE
+WITH THE PROPERTIES: imageRect, width, and height.  FOR EXAMPLE:***
+
+``````lua
+local displayObject = display.newImageRect("img/myImage.png", 100, 100)
+local spriteInfo = {
+    imageRect = displayObject,
+    width = 100,
+    height = 100
+}
+``````
+
+***REPEATEDLY CALLING SpriteInfo.new() HAS A SLIGHT PERFORMANCE IMPACT.***
+
+
 This function creates a new instance of type SpriteInfo.
-
-**NOTE: This function is called internally by the engine.**
-
 
 ## Syntax
 

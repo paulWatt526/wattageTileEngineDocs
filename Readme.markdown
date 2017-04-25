@@ -197,3 +197,56 @@ More support is available from the Blind Prophet Software, LLC team:
 * [Tech Demo](https://youtu.be/eTEtrMImJu0)
 * [Parallax Scrolling](https://youtu.be/I_i6erwuDcI)
 * [Racing Example (with parallax)](https://youtu.be/s-jux4R9auk)
+
+## Release Notes
+
+### 4-25-17
+
+Version 1.0.2
+
+This release consists of non-breaking changes.  No changes should be
+necessary in your code.
+
+* Fixed bug where entities in an EntityLayer could be visible on the first
+frame before they were moved into correct positions.
+* Minor Performance Improvements.
+* SpriteInfo.new() has been deprecated.  We have found that calling
+new() repeatedly is noticeably more costly than just creating a table
+with the same properties.  The new() function has been left in the
+engine for now, but it may be removed in the future.  It is recommended
+that a table be used instead.  For example, instead of this:
+
+``````lua
+local spriteInfo = SpriteInfo.new({
+    imageRect = displayObject,
+    width = 100,
+    height = 100
+})
+``````
+
+It is slightly better performance wise to do this:
+
+``````lua
+local spriteInfo = {
+    imageRect = displayObject,
+    width = 100,
+    height = 100
+}
+``````
+
+* Introduced lighting mode NONE for layers.  This will skip any light
+processing to improve performance for games which just want to display
+unlit tiles.
+
+### 2-1-17
+
+Version 1.0.1
+
+This release consists of non-breaking changes.  No changes should be
+necessary in your code.
+
+* Fixed bug where tiles may be added twice when scrolling diagonally.
+* Fixed bug with non-resource entity ID assignment.  Resource and
+non-resource IDs are managed separately.  It is now possible that the same
+ID could be assigned to a resource entity as well as a non-resource
+entity.

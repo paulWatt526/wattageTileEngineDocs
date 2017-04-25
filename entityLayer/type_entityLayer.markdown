@@ -55,6 +55,8 @@ local entityLayer = TileEngine.EntityLayer.new({
 
 ##### [EntityLayer.getEntityInfos()](getEntityInfos.markdown)
 
+##### [EntityLayer.getNonResourceEntities()](getNonResourceEntities.markdown)
+
 ##### [EntityLayer.destroy()](destroy.markdown)
 
 ##### [EntityLayer.setLightingMode()](setLightingMode.markdown)
