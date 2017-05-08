@@ -27,6 +27,9 @@ The wattageTileEngine plugin can be used in your
 the display of a large number of tiles and includes the following features:
 
 * Support for a large number of tiles.
+* Support for very large worlds which are too large to load entirely
+into memory through the use of the RegionManager. See the RegionManager
+guide below.
 * Dynamic lighting effects.
     * Tiles may be configured as opaque to cast shadows.
     * Opaque tiles may be added/removed arbitrarily and their effects
@@ -53,6 +56,7 @@ of zoom.
 * [Quickstart](quickstart.markdown)
 * [Lua OOP Primer (Optional)](luaOopPrimer.markdown)
 * [ObjectSystem Usage Guide (Optional)](objectSystem/usageGuide.markdown)
+* [Creating Very Large Worlds Using RegionManager](regionManager/usageGuide.markdown)
 
 ## Syntax
 
@@ -73,6 +77,7 @@ The following types are exposed by the Wattage Tile Engine library:
 * [LightingModel](lightingModel/type_lightingModel.markdown)
 * [LineOfSightModel](lineOfSightModel/type_lineOfSightModel.markdown)
 * [Module](module/type_module.markdown)
+* [RegionManager](regionManager/type_regionManager.markdown)
 * [SpriteInfo](spriteInfo/type_spriteInfo.markdown)
 * [Tile](tile/type_tile.markdown)
 * [TileLayer](tileLayer/type_tileLayer.markdown)
@@ -199,6 +204,17 @@ More support is available from the Blind Prophet Software, LLC team:
 * [Racing Example (with parallax)](https://youtu.be/s-jux4R9auk)
 
 ## Release Notes
+
+### 5-8-17
+
+Version 1.0.3
+
+This release consists of non-breaking changes.  No changes should be
+necessary in your code.
+
+* Added RegionManager type to assist in creating very large worlds.
+* Fixed memory leak occurring when tiles are dynamicaly updated outside
+of the visible area.
 
 ### 4-25-17
 
