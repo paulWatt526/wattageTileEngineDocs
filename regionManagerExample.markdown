@@ -28,7 +28,7 @@ When the region needs to be overwritten with new data, the RegionManager
 will call the regionReleased() listener function and pass the same region
 data back to that function.  Having the physics bodies collection attached
 to the region data enables the listener to cleanup the physics bodies
-when they are no longer needed.  Please note that a actual implementation
+when they are no longer needed.  Please note that an actual implementation
 of these listeners would likely be more complex resulting in a
 non-patterned environment. This simple implementation is only meant
 as an example.

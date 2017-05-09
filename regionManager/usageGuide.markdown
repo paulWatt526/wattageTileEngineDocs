@@ -279,7 +279,7 @@ reduces the number of updates performed in a frame.
 view.
 * Create as large a buffer layer as reasonably possible.  The biggest
 performance hit occurs when the camera crosses the edge of the
-active region.  Having a larger buffer will reduce the number of these
+active region.  Having a larger buffer will reduce the frequency of these
 occurrences.
 
 ### Gotchas
