@@ -185,7 +185,7 @@ function listener.getRegion(params)
 end
 ``````
 
-### Implementing regionReleased()
+#### Implementing regionReleased()
 
 regionReleased(regionData) is supplied with the same regionData table
 which was provided by getRegion().  The implementation should cleanup
@@ -210,7 +210,7 @@ function listener.regionReleased(regionData)
 end
 ``````
 
-### Instantiating and using the RegionManager
+### Instantiating the RegionManager
 
 ``````lua
 local camera
@@ -221,8 +221,6 @@ listener.getRegion = function(params)
 end
 listener.regionReleased = function(regionData)
 end
-
-listener.release
 
 local regionManager = RegionManager.new({
     regionWidthInTiles = 3,
@@ -288,3 +286,7 @@ occurrences.
 
 * Parallax Scrolling using layer scaling or scrolling coefficients
 is not possible when using the RegionManager.
+
+### Example
+
+[RegionManager Example Project](../regionManagerExample.markdown)

@@ -72,66 +72,6 @@ local Utils = TileEngine.Utils
 -- Localize external function calls.
 local sqrt = math.sqrt
 
--- The following is a simple immutable 2D Vector class
-local Vector2d = {}
-Vector2d.new = function(x, y)
-    local self = {}
-
-    -- Private variable to store the magnitude so that it is only calculated once.
-    -- This is done because math.sqrt is an expensive operation.
-    local cachedMagnitude
-
-    -- Accessor function for X
-    function self.getX()
-        return x
-    end
-
-    -- Accessor function for Y
-    function self.getY()
-        return y
-    end
-
-    -- Adds this vector to the passed in vector and returns a new
-    -- instance with the result.  Original vector values remain unchanged.
-    function self.add(v)
-        return Vector2d.new(x + v.getX(), y + v.getY())
-    end
-
-    -- Subtracts the passed in vector from this one and returns a new
-    -- instance with the result.  Original vector values remain unchanged.
-    function self.subtract(v)
-        return Vector2d.new(x - v.getX(), y - v.getY())
-    end
-
-    -- Returns the magnitude of this vector.
-    function self.getMagnitude()
-        if cachedMagnitude == nil then
-            cachedMagnitude = sqrt(x * x + y * y)
-        end
-        return cachedMagnitude
-    end
-
-    -- Multiplies the vector by a scalar.  The results are returned as
-    -- a new instance of the vector.  The original vector values remain unchanged.
-    function self.scalarMultiply(s)
-        return Vector2d.new(x * s, y * s)
-    end
-
-    -- Returns a new instance of the vector which has the same direction as
-    -- this vector, but a magnitude of 1.  If this vector has a magnitude of
-    -- 0, then a new vector is created with a magnitude of 0 and no direction (0,0).
-    function self.toUnit()
-        local magnitude = self.getMagnitude()
-        if magnitude == 0 then
-            return Vector2d.new(0,0)
-        else
-            return Vector2d.new(x / magnitude, y / magnitude)
-        end
-    end
-
-    return self
-end
-
 local AnalogControlStick = {}
 AnalogControlStick.new = function(params)
     Utils.requireParams({
@@ -155,23 +95,29 @@ AnalogControlStick.new = function(params)
     -- magnitude of 0.5 representing 50%.  If the touch point moves outside the radius, the value will be
     -- greater than 1 representing a value greater than 100%.  This can be used like a throttle control by
     -- setting an entity's velocity to a percentage of the max velocity.
-    local currentRawDirectionVector
+    local currentRawDirectionVectorX
+    local currentRawDirectionVectorY
 
     -- Same as currentRawDirectionVector except it is capped at 1 (or 100%).
-    local currentDirectionVector
+    local currentDirectionVectorX
+    local currentDirectionVectorY
 
     local function calculateDirectionVectors(x, y)
         -- Create vector for the control center point
-        local centerPointVector = Vector2d.new(centerDot.x, centerDot.y)
+        local centerPointVectorX = centerDot.x
+        local centerPointVectorY = centerDot.y
 
         -- Create vector for the touch point
-        local touchPointVector = Vector2d.new(x, y)
+        local touchPointVectorX = x
+        local touchPointVectorY = y
 
         -- Subtract the center vector from the touch point vector to get the control direction vector.
-        local vectorToTouchPoint = touchPointVector.subtract(centerPointVector)
+        local vectorToTouchPointX = touchPointVectorX - centerPointVectorX
+        local vectorToTouchPointY = touchPointVectorY - centerPointVectorY
 
         -- Determine the magnitude of the vector
-        local magnitude = vectorToTouchPoint.getMagnitude()
+        local magnitude = math.sqrt(
+            vectorToTouchPointX * vectorToTouchPointX + vectorToTouchPointY * vectorToTouchPointY)
 
         -- Determine the magnitude's percent of the outer circle radius
         local percent = magnitude / outerCircleRadius
@@ -181,11 +127,13 @@ AnalogControlStick.new = function(params)
 
         -- Calculates the vector where magnitude is the distance from the center dot represented as a
         -- percentage of the outer ring radius as described in the variable's declaration.
-        currentRawDirectionVector = vectorToTouchPoint.toUnit().scalarMultiply(percent)
+        currentRawDirectionVectorX = vectorToTouchPointX / magnitude * percent
+        currentRawDirectionVectorY = vectorToTouchPointY / magnitude * percent
 
         -- Calculates the vector where magnitude is the distance from the center dot represented as a
         -- percentage of the outer ring radius and capped at 1 (100%) as described in the variable's declaration.
-        currentDirectionVector = vectorToTouchPoint.toUnit().scalarMultiply(cappedPercent)
+        currentDirectionVectorX = vectorToTouchPointX / magnitude * cappedPercent
+        currentDirectionVectorY = vectorToTouchPointY / magnitude * cappedPercent
     end
 
     -- Handle for touch events
@@ -222,8 +170,10 @@ AnalogControlStick.new = function(params)
             touchId = nil
 
             -- Set direction vectors to nil
-            currentRawDirectionVector = nil
-            currentDirectionVector = nil
+            currentRawDirectionVectorX = nil
+            currentRawDirectionVectorY = nil
+            currentDirectionVectorX = nil
+            currentDirectionVectorY = nil
         end
 
         -- Indicate that the touch was handled by returning true
@@ -232,7 +182,10 @@ AnalogControlStick.new = function(params)
 
     -- Return both the raw and capped vector values
     function self.getCurrentValues()
-        return currentDirectionVector, currentRawDirectionVector
+        return {
+            cappedDirectionVector = {x = currentDirectionVectorX, y = currentDirectionVectorY},
+            rawDirectionVector = {x = currentRawDirectionVectorX, y = currentRawDirectionVectorY}
+        }
     end
 
     -- Perform cleanup of resources allocated by this class
@@ -352,15 +305,16 @@ player token.
 
 ``````lua
 -- Get the direction vectors from the control stick
-local uncappedPercentVector, cappedPercentVector = controlStick.getCurrentValues()
+local cappedPercentVector = controlStick.getCurrentValues().cappedDirectionVector
 
 -- If the control stick is currently being pressed, then apply the appropriate force
-if cappedPercentVector ~= nil then
+if cappedPercentVector.x ~= nil and cappedPercentVector.y ~= nil then
     -- Determine the percent of max force to apply.  The magnitude of the vector from the
     -- conrol stick indicates the percentate of the max force to apply.
-    local forceVector = cappedPercentVector.scalarMultiply(MAX_FORCE)
+    local forceVectorX = cappedPercentVector.x * MAX_FORCE
+    local forceVectorY = cappedPercentVector.y * MAX_FORCE
     -- Apply the force to the center of the player entity.
-    playerSprite:applyForce(forceVector.getX(), forceVector.getY(), playerSprite.x, playerSprite.y)
+    playerSprite:applyForce(forceVectorX, forceVectorY, playerSprite.x, playerSprite.y)
 end
 ``````
 

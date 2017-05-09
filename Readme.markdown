@@ -145,6 +145,7 @@ Additional Examples
 
 * [Loading level from Tiled](tiledExample.markdown)
 * [Integrating Physics Objects](physicsExample.markdown)
+* [Using the RegionManager](regionManagerExample.markdown)
 
 ### Support
 
