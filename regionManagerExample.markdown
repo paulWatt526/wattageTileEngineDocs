@@ -904,4 +904,4 @@ The code for this example can be found
 [here](https://github.com/paulWatt526/wattageRegionManagerExample).
 
 A video of the results can be found
-[coming soon!]().
+[here](https://youtu.be/XOsp4bKpQ5Y).
