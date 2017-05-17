@@ -176,9 +176,11 @@ More support is available from the Blind Prophet Software, LLC team:
 
 ### Racing Game
 
-![Racing screenshot 1](img/racing2.png)
+![Racing screenshot 1](img/hgtRacing1.png)
 
-![Racing screenshot 1](img/racing3.png)
+![Racing screenshot 2](img/hgtRacing2.png)
+
+![Racing screenshot 3](img/hgtRacing3.png)
 
 ### Roguelike
 
@@ -201,8 +203,7 @@ More support is available from the Blind Prophet Software, LLC team:
 ## Videos
 
 * [Tech Demo](https://youtu.be/eTEtrMImJu0)
-* [Parallax Scrolling](https://youtu.be/I_i6erwuDcI)
-* [Racing Example (with parallax)](https://youtu.be/s-jux4R9auk)
+* [Racing Example (with parallax)](https://youtu.be/lA7IsWciqCU)
 
 ## Release Notes
 
