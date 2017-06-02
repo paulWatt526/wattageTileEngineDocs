@@ -164,7 +164,7 @@ function listener.getRegion(params)
     local leftColumnOffset = params.leftColumnOffset
 
     if absoluteRegionRow % 2 == 0 and absoluteRegionCol % 2 == 0 then
-        local regionTemplate = CROSS_REGION
+        local regionTemplate = DOT_REGION
         local x = (leftColumnOffset + 2 - 0.5) * TILE_SIZE
         local y = (topRowOffset + 2 - 0.5) * TILE_SIZE
         local physicsObject = display.newRect(x, y, TILE_SIZE, TILE_SIZE)
@@ -188,7 +188,7 @@ end
 #### Implementing regionReleased()
 
 regionReleased(regionData) is supplied with the same regionData table
-which was provided by getRegion().  The implementation should cleanup
+which was provided by getRegion().  The implementation should clean up
 anything that getRegion() allocated and attached to the regionData table.
 This is a handy way to track and release static physics objects in the
 region.  If nothing additional was allocated in the getRegion() function,
