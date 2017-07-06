@@ -33,6 +33,12 @@ into memory if loaded in their entirety.
 
 ##### [RegionManager.centerEntityOnTile()](centerEntityOnTile.markdown)
 
+##### [RegionManager.centerNonResourceEntityOnTile()](centerNonResourceEntityOnTile.markdown)
+
 ##### [RegionManager.getEntityLocation()](getEntityLocation.markdown)
 
+##### [RegionManager.getNonResourceEntityLocation()](getNonResourceEntityLocation.markdown)
+
 ##### [RegionManager.setEntityLocation()](setEntityLocation.markdown)
+
+##### [RegionManager.setNonResourceEntityLocation()](setNonResourceEntityLocation.markdown)

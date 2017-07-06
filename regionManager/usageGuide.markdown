@@ -249,6 +249,14 @@ local entityId = 42
 local entityX, entityY = regionManager.getEntityLocation(entityLayerIndex, entityId)
 ``````
 
+...or for non-resource entities, do the following:
+
+``````lua
+local entityLayerIndex = 2
+local nonResourceEntityId = 42
+local entityX, entityY = regionManager.getNonResourceEntityLocation(entityLayerIndex, nonResourceEntityId)
+``````
+
 Update the camera like the following:
 
 ``````lua
@@ -267,6 +275,18 @@ regionManager.centerEntityOnTile(entityLayerIndex, entityId, 1, 1)
 -- OR
 
 regionManager.setEntityLocation(entityLayerIndex, entityId, 192, 192)
+``````
+
+...or for non-resource entities, do the following:
+
+``````lua
+local entityLayerIndex = 2
+local nonResourceEntityId = 42
+regionManager.centerNonResourceEntityOnTile(entityLayerIndex, nonResourceEntityId, 1, 1)
+
+-- OR
+
+regionManager.setNonResourceEntityLocation(entityLayerIndex, nonResourceEntityId, 192, 192)
 ``````
 
 ### Performance Considerations
