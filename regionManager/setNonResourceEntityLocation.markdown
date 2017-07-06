@@ -27,7 +27,7 @@ conversions.**
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._
 The index of the entity layer that contains the non-resource entity ID.
 
-##### entityId <small>(required)</small>
+##### nonResourcentityId <small>(required)</small>
 _[Number](https://docs.coronalabs.com/api/type/Number.html)._
 The ID of the non-resource entity to set the position of.
 
