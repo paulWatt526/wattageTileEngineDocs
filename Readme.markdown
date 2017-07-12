@@ -207,6 +207,13 @@ More support is available from the Blind Prophet Software, LLC team:
 
 ## Release Notes
 
+### 7-11-17
+
+Version 1.0.4
+
+This release consists of non-breaking changes.  It adds functions to
+RegionManager which allow it to handle non-resource entities.
+
 ### 5-8-17
 
 Version 1.0.3
