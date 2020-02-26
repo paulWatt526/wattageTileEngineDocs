@@ -5,11 +5,12 @@
 |                      | &nbsp;
 | -------------------- | ---------------------------------------------------------------
 | __Type__             | [Library](http://docs.coronalabs.com/api/type/Library.html)
-| __Corona Store__     | [wattageTileEngine](http://store.coronalabs.com/plugin/wattageTileEngine)
 | __Keywords__         | Tiles, Tile, Tile Engine, Engine
 | __See also__         | 
 
 ## Quickstart
+
+Source code may be found from [here](https://github.com/paulWatt526/tileEngine).
 
 Find screenshots of the tile engine in action [here](#screenshots), and a
 video of the tech demo [here](#videos).
@@ -86,36 +87,15 @@ The following types are exposed by the Wattage Tile Engine library:
 
 ## Project Configuration
 
-### Corona Store Activation
-
-In order to use this plugin, you must activate the plugin at the [Corona Store](http://store.coronalabs.com/plugin/wattageTileEngine).
-
-
-### SDK
-
-When you build using the Corona Simulator, the server automatically takes care of integrating the plugin into your project. 
-
-All you need to do is add an entry into a `plugins` table of your `build.settings`. The following is an example of a minimal `build.settings` file:
-
-``````
-settings =
-{
-	plugins =
-	{
-		-- key is the name passed to Lua's 'require()'
-		["plugin.wattageTileEngine"] =
-		{
-			-- required
-			publisherId = "com.blindprophetsoftware",
-		},
-	},		
-}
-``````
-
-### Enterprise
-
-If you have activated this plugin, you can download this plugin from the corresponding plugin page in the [Corona Store](http://store.coronalabs.com/plugin/wattageTileEngine).
-
+Clone the source from:
+```
+https://github.com/paulWatt526/tileEngine
+```
+then copy the "plugin" folder into your project.  The library can then be
+included using:
+```
+local wattageTileEngine = require "plugin.wattageTileEngine"
+```
 
 ## Platform-specific Notes
 
@@ -206,6 +186,10 @@ More support is available from the Blind Prophet Software, LLC team:
 * [Racing Example (with parallax)](https://youtu.be/lA7IsWciqCU)
 
 ## Release Notes
+
+### 2-24-20
+
+The Wattage Tile Engine is now open source software.
 
 ### 7-11-17
 
